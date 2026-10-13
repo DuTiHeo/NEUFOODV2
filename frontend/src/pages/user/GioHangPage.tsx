@@ -64,7 +64,7 @@ export default function GioHangPage() {
                         className={styles.stepperBtn}
                         onClick={() => add(item.id, 1)}
                         disabled={item.qty >= 10}
-                        title={item.qty >= 10 ? 'Giới hạn tối đa 10 phần/món (BR-07)' : 'Tăng số lượng'}
+                        title={item.qty >= 10 ? 'Giới hạn tối đa 10 phần/món' : 'Tăng số lượng'}
                         aria-label="Tăng"
                       >
                         <span className={`material-symbols-outlined ${styles.stepperIcon}`}>add</span>
@@ -72,12 +72,12 @@ export default function GioHangPage() {
                     </div>
                     {item.qty >= 10 ? (
                       <span style={{ fontSize: '0.75rem', color: '#b91c1c', display: 'block', marginTop: '4px' }}>
-                        Tối đa 10 phần (BR-07)
+                        Tối đa 10 phần mỗi món
                       </span>
                     ) : null}
                     {item.isOutOfStock ? (
                       <span style={{ fontSize: '0.75rem', color: '#dc2626', display: 'block', marginTop: '4px', fontWeight: 700 }}>
-                        ⚠️ Món đã hết hàng tại Canteen (EX-05) - Vui lòng xóa món!
+                        Món đã hết hàng - Vui lòng xóa món!
                       </span>
                     ) : null}
                   </div>
@@ -119,7 +119,7 @@ export default function GioHangPage() {
               <div className={styles.sumActions}>
                 {hasOutOfStockItems ? (
                   <div style={{ background: '#fef2f2', border: '1px solid #ef4444', color: '#b91c1c', padding: '10px 12px', borderRadius: '8px', fontSize: '0.8125rem', fontWeight: 600, textAlign: 'center' }}>
-                    ⚠️ Có món đã hết hàng tại Canteen A2 (EX-05). Vui lòng xóa món để thanh toán.
+                    Có món đã hết hàng tại Canteen. Vui lòng xóa món để thanh toán.
                   </div>
                 ) : totalCount > 0 ? (
                   <Link className={styles.sumPay} to="/thanh-toan">

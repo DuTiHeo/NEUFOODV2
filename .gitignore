@@ -64,3 +64,6 @@ dist-ssr/
 # Internal Media Uploads
 backend/app/uploads/*
 !backend/app/uploads/.gitkeep
+
+# Vercel
+.vercel/

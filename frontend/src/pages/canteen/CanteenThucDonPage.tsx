@@ -108,10 +108,10 @@ export default function CanteenThucDonPage() {
           <ShieldAlert size={28} />
         </div>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 8px' }}>
-          Yêu cầu Quyền Quản lý Canteen (UC19)
+          Yêu cầu Quyền Quản lý Canteen
         </h2>
         <p style={{ margin: '0 0 20px', fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6 }}>
-          Bạn đang đăng nhập bằng <strong>Tài khoản dùng chung của Nhân viên</strong>. Nghiệp vụ <em>Thêm món, Sửa thông tin món, Đổi giá bán và Ẩn món</em> chỉ dành riêng cho Quản lý Canteen theo quy chế phân quyền BR-02.
+          Bạn đang đăng nhập bằng <strong>Tài khoản dùng chung của Nhân viên</strong>. Nghiệp vụ <em>Thêm món, Sửa thông tin món, Đổi giá bán và Ẩn món</em> chỉ dành riêng cho Quản lý Canteen.
         </p>
         <button
           onClick={() => navigate('/canteen/login')}
@@ -135,13 +135,13 @@ export default function CanteenThucDonPage() {
   return (
     <div>
       {/* Header Banner */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
+      <div style={{ display: 'flex', borderBottom: 'none', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-            Quản lý Thực đơn Canteen A2 (UC19)
+            Quản lý Thực đơn Canteen A2
           </h2>
           <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-            Thêm, sửa, đổi giá bán và ẩn món ăn. Tuân thủ <strong>BR-06</strong> (món đã có đơn chỉ được ẩn, không xóa cứng; đổi giá không ảnh hưởng đơn cũ).
+            Thêm, sửa, đổi giá bán và ẩn món ăn. Món đã từng có đơn chỉ được ẩn, không xóa cứng; đổi giá không ảnh hưởng đơn cũ.
           </p>
         </div>
 
@@ -205,7 +205,7 @@ export default function CanteenThucDonPage() {
               <th style={{ padding: '14px 16px' }}>Danh mục</th>
               <th style={{ padding: '14px 16px' }}>Giá bán hiện tại</th>
               <th style={{ padding: '14px 16px' }}>Trạng thái phục vụ</th>
-              <th style={{ padding: '14px 16px' }}>Hiển thị Menu (BR-06)</th>
+              <th style={{ padding: '14px 16px' }}>Hiển thị Menu</th>
               <th style={{ padding: '14px 16px', textAlign: 'right' }}>Thao tác Quản lý</th>
             </tr>
           </thead>
@@ -237,7 +237,7 @@ export default function CanteenThucDonPage() {
                     </strong>
                     <button
                       onClick={() => openChangePrice(dish)}
-                      title="Đổi giá bán (BR-06)"
+                      title="Đổi giá bán"
                       style={{ padding: '4px 8px', borderRadius: '4px', border: '1px solid #cbd5e1', background: '#f8fafc', color: '#0284c7', cursor: 'pointer', fontSize: '0.6875rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}
                     >
                       <DollarSign size={12} /> Đổi giá
@@ -252,7 +252,7 @@ export default function CanteenThucDonPage() {
                     </span>
                   ) : (
                     <span style={{ background: '#fee2e2', color: '#b91c1c', padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700 }}>
-                      Hết món (BR-05)
+                      Tạm hết món
                     </span>
                   )}
                 </td>
@@ -293,10 +293,10 @@ export default function CanteenThucDonPage() {
                         alignItems: 'center',
                         gap: '4px',
                       }}
-                      title="Món đã từng có đơn chỉ được ẩn, không xóa cứng theo BR-06"
+                      title="Món đã từng có đơn chỉ được ẩn, không thể xóa bỏ hoàn toàn"
                     >
                       {dish.isHidden ? <Eye size={14} /> : <EyeOff size={14} />}
-                      {dish.isHidden ? 'Hiện món' : 'Ẩn món (BR-06)'}
+                      {dish.isHidden ? 'Hiện món' : 'Ẩn món'}
                     </button>
                   </div>
                 </td>
@@ -310,7 +310,7 @@ export default function CanteenThucDonPage() {
       {isAddOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px', zIndex: 100 }}>
           <div style={{ background: '#ffffff', borderRadius: '14px', maxWidth: '520px', width: '100%', padding: '24px', boxShadow: '0 20px 25px rgba(0,0,0,0.2)' }}>
-            <h3 style={{ margin: '0 0 16px', fontSize: '1.125rem', fontWeight: 800, color: '#0f172a' }}>Thêm món mới vào Thực đơn (UC19)</h3>
+            <h3 style={{ margin: '0 0 16px', fontSize: '1.125rem', fontWeight: 800, color: '#0f172a' }}>Thêm món mới vào Thực đơn</h3>
             <form onSubmit={handleSaveNew}>
               <div style={{ marginBottom: '12px' }}>
                 <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '4px' }}>Tên món ăn:</label>
@@ -396,14 +396,14 @@ export default function CanteenThucDonPage() {
         </div>
       )}
 
-      {/* MODAL: Đổi giá bán (BR-06) */}
+      {/* MODAL: Đổi giá bán */}
       {isPriceOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px', zIndex: 100 }}>
           <div style={{ background: '#ffffff', borderRadius: '14px', maxWidth: '420px', width: '100%', padding: '24px', boxShadow: '0 20px 25px rgba(0,0,0,0.2)' }}>
             <h3 style={{ margin: '0 0 12px', fontSize: '1.125rem', fontWeight: 800, color: '#0f172a' }}>Đổi giá bán món: {targetDish?.name}</h3>
             
             <div style={{ background: '#f0f9ff', padding: '10px 12px', borderRadius: '8px', border: '1px solid #bae6fd', fontSize: '0.75rem', color: '#0369a1', marginBottom: '16px', lineHeight: 1.5 }}>
-              <strong>Quy tắc BR-06:</strong> Đổi giá bán chỉ áp dụng cho các lượt đặt đơn mới. Các đơn hàng đã tạo trước thời điểm này giữ nguyên mức giá cũ đã chốt!
+              Đổi giá bán chỉ áp dụng cho các lượt đặt đơn mới. Các đơn hàng đã đặt trước thời điểm này vẫn giữ nguyên mức giá cũ.
             </div>
 
             <form onSubmit={handleSavePrice}>

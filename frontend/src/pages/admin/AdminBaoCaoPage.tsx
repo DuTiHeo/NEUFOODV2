@@ -40,14 +40,14 @@ export default function AdminBaoCaoPage() {
           {
             label: 'Doanh thu (k đ)',
             data: [450, 780, 600, 950, 820, 1100, 980],
-            borderColor: '#003f87',
+            borderColor: '#059669',
             borderWidth: 3,
             tension: 0.4,
             fill: true,
             backgroundColor: (ctx) => {
               const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280)
-              g.addColorStop(0, 'rgba(0, 63, 135, 0.15)')
-              g.addColorStop(1, 'rgba(0, 63, 135, 0)')
+              g.addColorStop(0, 'rgba(5, 150, 105, 0.15)')
+              g.addColorStop(1, 'rgba(5, 150, 105, 0)')
               return g
             },
             pointRadius: 0,
@@ -77,7 +77,7 @@ export default function AdminBaoCaoPage() {
         datasets: [
           {
             data: [42, 28, 18, 12],
-            backgroundColor: ['#003f87', '#4f46e5', '#fbbf24', '#f87171'],
+            backgroundColor: ['#059669', '#10b981', '#f59e0b', '#f87171'],
             borderWidth: 0,
             cutout: '75%',
           },

@@ -39,10 +39,10 @@ export default function CanteenHoanTienPage() {
           <ShieldAlert size={28} />
         </div>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 8px' }}>
-          Yêu cầu Quyền Quản lý Canteen (UC24)
+          Yêu cầu Quyền Quản lý Canteen
         </h2>
         <p style={{ margin: '0 0 20px', fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6 }}>
-          Chức năng <strong>Hoàn tiền khi đơn bị hủy (gồm hoàn khoản tiền shipper đã ứng trước với đơn COD)</strong> chỉ được thao tác bởi <strong>Quản lý Canteen</strong> theo quy định BR-17, BR-36 và BR-37.
+          Chức năng <strong>Hoàn tiền khi đơn bị hủy (gồm hoàn khoản tiền shipper đã ứng trước với đơn COD)</strong> chỉ được thao tác bởi tài khoản <strong>Quản lý Canteen</strong>.
         </p>
         <button
           onClick={() => navigate('/canteen/login')}
@@ -68,10 +68,10 @@ export default function CanteenHoanTienPage() {
       {/* Header */}
       <div style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Hoàn tiền khi đơn bị hủy (UC24)
+          Hoàn tiền khi đơn bị hủy
         </h2>
         <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-          Xử lý hoàn tiền cho khách thanh toán online (BR-17) và <strong>hoàn trả lại khoản tiền shipper đã ứng trước với đơn COD</strong> khi khách boom hàng hoặc đơn hủy (BR-36, BR-37).
+          Xử lý hoàn tiền cho khách thanh toán trực tuyến và <strong>hoàn trả lại tiền ứng cho shipper</strong> khi đơn bị hủy hoặc gặp sự cố.
         </p>
       </div>
 
@@ -113,7 +113,7 @@ export default function CanteenHoanTienPage() {
             color: activeTab === 'online' ? '#0369a1' : '#475569',
           }}
         >
-          Hoàn tiền Khách Online (BR-17)
+          Hoàn tiền Khách Online
         </button>
 
         <button
@@ -129,7 +129,7 @@ export default function CanteenHoanTienPage() {
             color: activeTab === 'cod' ? '#b45309' : '#475569',
           }}
         >
-          Hoàn tiền ứng cho Shipper COD (BR-36, BR-37)
+          Hoàn tiền ứng cho Shipper COD
         </button>
       </div>
 
@@ -169,7 +169,7 @@ export default function CanteenHoanTienPage() {
                       {isOnline ? 'Đơn QR Online' : 'Đơn COD (Shipper ứng tiền)'}
                     </span>
                     <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: ord.status === 'incident' ? '#fee2e2' : '#f1f5f9', color: ord.status === 'incident' ? '#b91c1c' : '#475569', fontWeight: 600 }}>
-                      {ord.status === 'incident' ? 'Sự cố Boom hàng (BR-36)' : 'Đã hủy'}
+                      {ord.status === 'incident' ? 'Sự cố phát sinh' : 'Đã hủy'}
                     </span>
                   </div>
 
@@ -182,7 +182,7 @@ export default function CanteenHoanTienPage() {
                       Shipper được gán: <strong>{ord.shipperName}</strong> ({ord.shipperPhone})
                       {ord.shipperAdvancePaid && (
                         <span style={{ color: '#d97706', fontWeight: 700, marginLeft: '6px' }}>
-                          [Đã ứng tiền món: {ord.subtotal.toLocaleString('vi-VN')}đ tại Canteen (BR-34)]
+                          [Đã ứng tiền món: {ord.subtotal.toLocaleString('vi-VN')}đ tại Canteen]
                         </span>
                       )}
                     </p>
@@ -228,7 +228,7 @@ export default function CanteenHoanTienPage() {
                             gap: '6px',
                           }}
                         >
-                          <RotateCcw size={15} /> Hoàn 100% tiền qua Cổng thanh toán (BR-17)
+                          <RotateCcw size={15} /> Hoàn tiền qua Cổng thanh toán
                         </button>
                       )}
 
@@ -249,7 +249,7 @@ export default function CanteenHoanTienPage() {
                             gap: '6px',
                           }}
                         >
-                          <RotateCcw size={15} /> Hoàn tiền ứng cho Shipper (BR-36, BR-37)
+                          <RotateCcw size={15} /> Hoàn tiền ứng cho Shipper
                         </button>
                       )}
                     </div>

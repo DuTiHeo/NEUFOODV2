@@ -4,50 +4,78 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Đăng ký | NEU Food</title>
+    <title>Đăng ký | NEUFood</title>
+    <link rel="icon" type="image/png" href="/favicon.png?v=3" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3" />
+    <link rel="shortcut icon" href="/favicon.ico?v=3" />
+    <link rel="apple-touch-icon" href="/favicon.png?v=3" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="DangKy.module.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
 </head>
 
-<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col min-h-screen">
+<body class="body">
+    <div class="heroPattern"></div>
+
+    <!-- Navigation Header -->
     <header class="header">
-        <div class="logo">
-            <img alt="NEU Food Logo" class="logoImg" src="https://res.cloudinary.com/dco3anl6m/image/upload/f_auto,q_auto/neu-food_nbogtd" />
-            <div class="logoText">NEU Food</div>
-        </div>
+        <a class="logo" href="/">
+            <img alt="NEUFood Logo" class="logoImg" src="/logo.png?v=3" />
+            <span class="logoText">NEUFood</span>
+        </a>
         <div class="nav">
             <span class="navText">Đã có tài khoản?</span>
             <a class="navLink" href="DANGNHAP.html">Đăng nhập</a>
+            <a class="navHomeLink" href="/">← Trang chủ</a>
         </div>
     </header>
+
+    <!-- Main Content Area -->
     <main class="main">
         <div class="grid">
-            <!-- Left Side: Illustration & Branding -->
+            <!-- Left Side: Branding & Perks -->
             <div class="leftSide">
+                <div class="tagBadge">
+                    <span class="tagDot"></span> Gia nhập cộng đồng ẩm thực NEU
+                </div>
                 <div class="illustration">
                     <div class="illustrationImg">
-                        <img alt="NEU Food Logo Illustration" class="logoIllustration" src="https://res.cloudinary.com/dco3anl6m/image/upload/f_auto,q_auto/neu-food_nbogtd" />
+                        <img alt="NEUFood Logo" class="logoIllustration" src="/logo.png?v=3" />
                     </div>
                     <h1 class="title">
-                        Giao hàng tận phòng học tại <span>NEU</span>
+                        Tạo tài khoản,<br/><span>thưởng thức món ngon mỗi ngày.</span>
                     </h1>
                     <p class="description">
-                        Chào mừng bạn đến với hệ thống đặt đồ ăn trực tuyến hàng đầu dành riêng cho cộng đồng Kinh tế Quốc dân. Trải nghiệm dịch vụ giao hàng siêu tốc, menu đa dạng và ưu đãi độc quyền dành cho sinh viên.
+                        Trải nghiệm dịch vụ đặt món thông minh, tích điểm đổi quà và nhận hàng ngàn ưu đãi hấp dẫn ngay tại khuôn viên Trường Đại học Kinh tế Quốc dân.
                     </p>
+                    <div class="featureList">
+                        <div class="featureItem">
+                            <span class="featureIcon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Đặt món nhanh chóng chỉ trong vài thao tác</span>
+                        </div>
+                        <div class="featureItem">
+                            <span class="featureIcon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Giao chuẩn phòng học theo từng toà nhà &amp; tầng</span>
+                        </div>
+                        <div class="featureItem">
+                            <span class="featureIcon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </span>
+                            <span>Ưu đãi hấp dẫn dành cho thành viên mới</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <!-- Right Side: Sign Up Form -->
             <div class="rightSide">
                 <div class="formContainer">
                     <div class="formHeader">
                         <h2 class="formTitle">Tạo tài khoản mới</h2>
-                        <p class="formDesc">Nhập thông tin của bạn để bắt đầu hành trình ẩm thực.</p>
+                        <p class="formDesc">Nhập thông tin của bạn để bắt đầu đặt món tại NEUFood.</p>
                     </div>
                     <form class="form" id="signup-form">
                         <!-- Full Name -->
@@ -58,7 +86,7 @@
                         <!-- Email -->
                         <div class="inputGroup">
                             <label class="label">ĐỊA CHỈ EMAIL</label>
-                            <input class="input" id="signup-email" placeholder="alex@sanctuary.io" type="email" autocomplete="email" required />
+                            <input class="input" id="signup-email" placeholder="sinhvien@neu.edu.vn" type="email" autocomplete="email" required />
                         </div>
                         <div class="gridInputs">
                             <!-- Password -->
@@ -68,38 +96,47 @@
                             </div>
                             <!-- Confirm Password -->
                             <div class="inputGroup">
-                                <label class="label">XÁC NHẬN</label>
+                                <label class="label">XÁC NHẬN MẬT KHẨU</label>
                                 <input class="input" id="signup-confirm" placeholder="••••••••" type="password" autocomplete="new-password" minlength="6" required />
                             </div>
                         </div>
                         <!-- Terms -->
                         <div class="terms">
-                            <div class="flex items-center h-6">
-                                <input class="checkbox" id="terms" type="checkbox" />
-                            </div>
+                            <input class="checkbox" id="terms" type="checkbox" required />
                             <label class="checkboxLabel" for="terms">
-                            Tôi đồng ý với <a href="DieuKhoanDichVu.html">Điều khoản &amp; Điều kiện</a> và <a href="ChinhSachBaoMat.html">Chính sách bảo mật</a>.
-                        </label>
+                                Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của NEUFood.
+                            </label>
                         </div>
                         <p class="formDesc" id="signup-message" style="margin-top: 8px; display: none;"></p>
-                        <!-- Submit -->
+                        <!-- Submit Button -->
                         <button class="button" type="submit">
-                        Tạo tài khoản
-                    </button>
+                            Tạo tài khoản ngay
+                        </button>
                     </form>
+
+                    <div class="footerBox">
+                        <p class="footerBoxText">
+                            Đã có tài khoản?
+                            <a class="footerBoxLink" href="DANGNHAP.html">Đăng nhập tại đây</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Page Footer -->
     <footer class="footer">
-        <div class="footerText">© 2024 NEU Food. Kết nối cộng đồng sinh viên qua ẩm thực.</div>
+        <div class="footerText">© 2024 NEUFood • Nền tảng ẩm thực sinh viên Đại học Kinh tế Quốc dân</div>
         <nav class="footerNav">
-            <a class="footerLink" href="ChinhSachBaoMat.html">Chính sách bảo mật</a>
-            <a class="footerLink" href="DieuKhoanDichVu.html">Điều khoản dịch vụ</a>
-            <a class="footerLink" href="BaoMat.html">Bảo mật</a>
-            <a class="footerLink" href="CaiDatCookie.html">Cài đặt Cookie</a>
+            <a class="footerLink" href="#">Chính sách bảo mật</a>
+            <a class="footerLink" href="#">Điều khoản dịch vụ</a>
+            <a class="footerLink" href="#">Bảo mật thông tin</a>
+            <a class="footerLink" href="#">Hỗ trợ sinh viên</a>
         </nav>
     </footer>
+
+    <!-- Script Authentication Logic -->
     <script>
         const USERS_KEY = 'neufood_users_v1';
         const SESSION_KEY = 'neufood_session_v1';
@@ -127,8 +164,15 @@
             if (!el) return;
             el.style.display = 'block';
             el.textContent = text;
-            el.style.color = type === 'success' ? '#0f766e' : '#b91c1c';
+            el.style.color = type === 'success' ? '#059669' : '#dc2626';
+            el.style.fontWeight = '600';
         }
+
+        // If already logged in, redirect to home
+        try {
+            const existing = localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
+            if (existing) window.location.href = '/';
+        } catch {}
 
         document.getElementById('signup-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -143,7 +187,7 @@
             if (!email) return setMessage('Vui lòng nhập email hợp lệ.', 'error');
             if (password.length < 6) return setMessage('Mật khẩu phải có ít nhất 6 ký tự.', 'error');
             if (password !== confirm) return setMessage('Mật khẩu xác nhận không khớp.', 'error');
-            if (!acceptedTerms) return setMessage('Bạn cần đồng ý với Điều khoản & Điều kiện.', 'error');
+            if (!acceptedTerms) return setMessage('Bạn cần đồng ý với Điều khoản dịch vụ.', 'error');
 
             const users = loadUsers();
             const exists = users.some(u => normalizeEmail(u.email) === email);
@@ -155,7 +199,7 @@
 
             localStorage.setItem(SESSION_KEY, JSON.stringify({ email, name, loginAt: new Date().toISOString() }));
             setMessage('Đăng ký thành công! Đang chuyển về trang chủ...', 'success');
-            setTimeout(() => window.location.href = '/', 600);
+            setTimeout(() => window.location.href = '/', 500);
         });
     </script>
 </body>

@@ -21,7 +21,7 @@ export default function ShipperThuNhapPage() {
   return (
     <div>
       <h3 style={{ margin: '0 0 14px', fontSize: '0.9375rem', fontWeight: 800, color: '#0f172a' }}>
-        Ví thu nhập Shipper NEU (BR-26, UC33)
+        Ví thu nhập Shipper NEU
       </h3>
 
       {/* Wallet Card */}

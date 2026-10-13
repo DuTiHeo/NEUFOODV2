@@ -70,7 +70,7 @@ export default function CanteenMonPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-            Kho món ăn Canteen A2 (BR-05, BR-06)
+            Kho món ăn Canteen A2
           </h2>
           <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0 }}>
             Cập nhật trạng thái Còn món / Hết món theo thời gian thực cho sinh viên NEU.
@@ -103,8 +103,8 @@ export default function CanteenMonPage() {
             <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#475569' }}>
               <th style={{ padding: '12px 16px' }}>Hình ảnh &amp; Món</th>
               <th style={{ padding: '12px 16px' }}>Giá bán</th>
-              <th style={{ padding: '12px 16px' }}>Trạng thái kho (BR-05)</th>
-              <th style={{ padding: '12px 16px' }}>Hiển thị (BR-06)</th>
+              <th style={{ padding: '12px 16px' }}>Trạng thái kho</th>
+              <th style={{ padding: '12px 16px' }}>Hiển thị</th>
               <th style={{ padding: '12px 16px', textAlign: 'right' }}>Thao tác</th>
             </tr>
           </thead>
@@ -152,7 +152,7 @@ export default function CanteenMonPage() {
 
                 <td style={{ padding: '12px 16px' }}>
                   <span style={{ fontSize: '0.8125rem', color: dish.isHidden ? '#94a3b8' : '#059669', fontWeight: 600 }}>
-                    {dish.isHidden ? 'Đã ẩn (BR-06)' : 'Đang bật hiển thị'}
+                    {dish.isHidden ? 'Đã ẩn' : 'Đang bật hiển thị'}
                   </span>
                 </td>
 
@@ -175,7 +175,7 @@ export default function CanteenMonPage() {
                       style={{ padding: '6px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', cursor: 'pointer', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}
                     >
                       <EyeOff size={13} />
-                      {dish.isHidden ? 'Bỏ ẩn' : 'Ẩn món (BR-06)'}
+                      {dish.isHidden ? 'Bỏ ẩn' : 'Ẩn món'}
                     </button>
                   </div>
                 </td>
@@ -191,7 +191,7 @@ export default function CanteenMonPage() {
           <div style={{ background: '#ffffff', borderRadius: '12px', maxWidth: '380px', width: '100%', padding: '24px' }}>
             <h3 style={{ margin: '0 0 8px' }}>Chỉnh sửa giá bán</h3>
             <p style={{ fontSize: '0.8125rem', color: '#64748b', marginBottom: '14px' }}>
-              Quy định BR-06: Đổi giá mới sẽ không ảnh hưởng đến các đơn hàng đã được tạo trước đó.
+              Đổi giá mới sẽ chỉ áp dụng cho các đơn hàng tiếp theo.
             </p>
 
             <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '6px' }}>
@@ -218,7 +218,7 @@ export default function CanteenMonPage() {
                 onClick={handleSavePrice}
                 style={{ padding: '8px 16px', borderRadius: '6px', border: 'none', background: '#881337', color: '#ffffff', fontWeight: 600, cursor: 'pointer' }}
               >
-                Lưu giá mới (BR-06)
+                Lưu giá mới
               </button>
             </div>
           </div>

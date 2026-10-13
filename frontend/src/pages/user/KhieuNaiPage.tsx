@@ -69,12 +69,12 @@ export default function KhieuNaiPage() {
     }
 
     if (isOver24Hours) {
-      setErrorMessage('Theo quy định BR-25 (EX-26): Đơn hàng đã quá hạn 24 giờ kể từ khi hoàn thành. Hệ thống từ chối thụ lý khiếu nại.')
+      setErrorMessage('Đơn hàng đã quá hạn 24 giờ kể từ khi hoàn thành nên không thể gửi khiếu nại.')
       return
     }
 
     if (existingComplaint) {
-      setErrorMessage('Đơn hàng này đã có khiếu nại đang được xử lý (BR-25: mỗi đơn chỉ gửi 1 khiếu nại).')
+      setErrorMessage('Đơn hàng này đã có khiếu nại đang được xử lý.')
       return
     }
 
@@ -93,7 +93,7 @@ export default function KhieuNaiPage() {
         proofImage: proofImage || undefined,
       })
 
-      setSuccessMessage('Gửi khiếu nại thành công! Ticket của bạn đã được chuyển tới Ban Quản Trị Hệ Thống (UC38) để thụ lý và phán quyết hoàn tiền.')
+      setSuccessMessage('Gửi khiếu nại thành công! Yêu cầu của bạn đã được chuyển tới Ban quản trị để xử lý.')
       setDescription('')
       setActiveTab('history')
     } catch (err: any) {
@@ -114,7 +114,7 @@ export default function KhieuNaiPage() {
           <ArrowLeft size={16} /> Quay lại Lịch sử đơn hàng
         </Link>
         <span style={{ fontSize: '0.8125rem', color: '#0369a1', background: '#e0f2fe', padding: '4px 10px', borderRadius: '6px', fontWeight: 700 }}>
-          Phân hệ Khách hàng • UC17
+          Hỗ trợ khách hàng
         </span>
       </div>
 
@@ -122,10 +122,10 @@ export default function KhieuNaiPage() {
       <div style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', color: '#ffffff', borderRadius: '16px', padding: '24px 28px', marginBottom: '28px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
           <ShieldAlert size={28} color="#f59e0b" />
-          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Trung tâm Khiếu nại Đơn hàng (UC17)</h1>
+          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Trung tâm Khiếu nại Đơn hàng</h1>
         </div>
         <p style={{ margin: 0, fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.6 }}>
-          Bảo vệ quyền lợi sinh viên NEU theo quy chế vận hành: <strong>BR-25</strong> (Thời hạn khiếu nại trong 24 giờ sau hoàn thành, mỗi đơn 1 khiếu nại) và <strong>BR-37</strong> (Admin phán quyết trách nhiệm bên có lỗi để hoàn tiền 100%).
+          Tiếp nhận và giải quyết khiếu nại trong vòng 24 giờ kể từ khi nhận hàng. Hoàn tiền 100% nếu xác định lỗi do phía nhà bếp hoặc giao hàng.
         </p>
       </div>
 
@@ -148,7 +148,7 @@ export default function KhieuNaiPage() {
             gap: '8px',
           }}
         >
-          <FileText size={18} /> Gửi Khiếu nại mới (UC17)
+          <FileText size={18} /> Gửi Khiếu nại mới
         </button>
 
         <button
@@ -225,17 +225,17 @@ export default function KhieuNaiPage() {
                     Tổng tiền: <strong>{selectedOrder.total.toLocaleString()}đ</strong> ({selectedOrder.paymentMethod === 'cod' ? 'Tiền mặt COD' : 'QR Online'})
                   </p>
 
-                  {/* Warning Over 24h (EX-26) */}
+                  {/* Warning Over 24h */}
                   {isOver24Hours && (
                     <div style={{ marginTop: '10px', color: '#b91c1c', fontSize: '0.8125rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <XCircle size={16} /> CẢNH BÁO EX-26: Đơn hàng đã quá hạn 24 giờ. Theo BR-25, khiếu nại quá hạn sẽ bị từ chối tiếp nhận!
+                      <XCircle size={16} /> Đơn hàng đã quá hạn 24 giờ kể từ khi hoàn thành nên không thể gửi khiếu nại!
                     </div>
                   )}
 
                   {/* Warning Duplicate Complaint */}
                   {existingComplaint && (
                     <div style={{ marginTop: '10px', color: '#b45309', fontSize: '0.8125rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <AlertTriangle size={16} /> Đơn hàng này đã có khiếu nại #{existingComplaint.id} đang xử lý (BR-25: 1 khiếu nại/đơn).
+                      <AlertTriangle size={16} /> Đơn hàng này đã có khiếu nại đang được xử lý.
                     </div>
                   )}
                 </div>
@@ -245,7 +245,7 @@ export default function KhieuNaiPage() {
             {/* Step 2: Reason Type */}
             <div style={{ marginBottom: '20px' }}>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
-                2. Loại sự cố / Lý do khiếu nại (BR-25, EX-25):
+                2. Loại sự cố / Lý do khiếu nại:
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '10px' }}>
                 {Object.entries(reasonLabels).map(([key, label]) => (
@@ -297,7 +297,7 @@ export default function KhieuNaiPage() {
             {/* Step 4: Proof Image */}
             <div style={{ marginBottom: '24px' }}>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
-                4. Hình ảnh bằng chứng (BR-25, EX-26 - Yêu cầu đính kèm):
+                4. Hình ảnh bằng chứng (yêu cầu đính kèm):
               </label>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <img
@@ -355,7 +355,7 @@ export default function KhieuNaiPage() {
               }}
             >
               <Send size={18} />
-              {submitting ? 'Đang gửi...' : 'Gửi Khiếu Nại Tới Ban Quản Trị Hệ Thống (UC17)'}
+              {submitting ? 'Đang gửi...' : 'Gửi Khiếu Nại Tới Ban Quản Trị'}
             </button>
           </form>
         </div>
@@ -430,7 +430,7 @@ export default function KhieuNaiPage() {
                     {!isPending && (
                       <div style={{ marginTop: '10px', padding: '10px 12px', borderRadius: '6px', background: '#ffffff', border: '1px dashed #cbd5e1', fontSize: '0.8125rem' }}>
                         <p style={{ margin: '0 0 4px', fontWeight: 700, color: '#0f172a' }}>
-                          Phán quyết từ Ban Quản Trị (Admin - BR-37):
+                          Phán quyết từ Ban Quản Trị:
                         </p>
                         <p style={{ margin: '0 0 4px', color: '#475569' }}>
                           {ticket.resolutionNote || 'Đã đối soát trách nhiệm theo đúng điều khoản dịch vụ.'}

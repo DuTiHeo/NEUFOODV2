@@ -85,7 +85,7 @@ function DishCard({ dish }) {
 
   function addToCart() {
     if (isOutOfStock) {
-      alert('Món này hiện đang HẾT HÀNG tại Canteen A2 (BR-05). Vui lòng chọn món khác!')
+      alert('Món này hiện đang tạm hết hàng. Vui lòng chọn món khác!')
       return
     }
     add(dish.id, draft)
@@ -111,7 +111,7 @@ function DishCard({ dish }) {
                   boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                 }}
               >
-                HẾT MÓN (BR-05)
+                TẠM HẾT MÓN
               </span>
             ) : null}
             {(dish.badges ?? []).map((b) => (
@@ -177,9 +177,9 @@ function DishCard({ dish }) {
                   }
                 : undefined
             }
-            title={isOutOfStock ? 'Món đã hết hàng tại Canteen A2 (BR-05)' : 'Thêm vào giỏ'}
+            title={isOutOfStock ? 'Món đã tạm hết hàng' : 'Thêm vào giỏ'}
           >
-            {isOutOfStock ? 'Hết món (BR-05)' : 'Thêm vào giỏ'}
+            {isOutOfStock ? 'Tạm hết món' : 'Thêm vào giỏ'}
           </button>
         </div>
       </div>
@@ -400,8 +400,8 @@ export default function MenuPage() {
           <div className={`wrap ${styles.stickyDockInner}`}>
             <header className={styles.pageHead}>
               <div className={styles.pageHeadText}>
-                <h1 className={styles.pageTitle}>Thực đơn</h1>
-                <p className={styles.pageSub}>Chọn món, thêm vào giỏ — giao tận phòng học.</p>
+                <h1 className={styles.pageTitle}>Khám phá Thực đơn</h1>
+                <p className={styles.pageSub}>Hơn 30 món ngon Canteen NEU đang chờ bạn. Đặt ngay, giao tận phòng!</p>
               </div>
             </header>
 
@@ -573,12 +573,12 @@ export default function MenuPage() {
               <div className={styles.cartSticky}>
                 <div className={styles.cartHead}>
                   <ShoppingBag size={22} strokeWidth={2} aria-hidden />
-                  <h2 className={styles.cartTitle}>Giỏ của bạn</h2>
+                  <h2 className={styles.cartTitle}>Giỏ hàng</h2>
                   <span className={styles.cartBadge}>{totalCount}</span>
                 </div>
 
                 {lines.length === 0 ? (
-                  <p className={styles.cartEmpty}>Chưa có món. Chọn số lượng và bấm &quot;Thêm vào giỏ&quot;.</p>
+                  <p className={styles.cartEmpty}>Giỏ hàng đang trống. Hãy chọn món bạn yêu thích!</p>
                 ) : (
                   <ul className={styles.cartList}>
                     {lines.map(({ dish, qty }) => (
@@ -604,7 +604,7 @@ export default function MenuPage() {
                               className={styles.qtyBtnSm}
                               onClick={() => add(dish.id, 1)}
                               disabled={qty >= 10}
-                              title={qty >= 10 ? 'Tối đa 10 phần/món (BR-07)' : 'Tăng'}
+                              title={qty >= 10 ? 'Số lượng tối đa 10 phần' : 'Tăng'}
                               aria-label="Tăng"
                             >
                               <span className={`material-symbols-outlined ${styles.qtyBtnSmMs}`}>add</span>

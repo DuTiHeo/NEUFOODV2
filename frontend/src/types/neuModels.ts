@@ -140,6 +140,7 @@ export interface SystemConfig {
   shipperMaxAdvanceLimit: number  // 500.000đ (BR-35)
   canteenKeepMinutes: number      // 30p quầy giữ (BR-31)
   canteenConfirmTimeout: number   // 10p xác nhận (BR-15)
+  autoAcceptToPreparing?: boolean // Tự động vào bếp khi khách đặt đơn (UC22)
 }
 
 export interface CustomerReview {

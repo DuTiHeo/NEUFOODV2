@@ -55,7 +55,7 @@ export default function ShipperHoSoPage() {
       return
     }
 
-    setPwdMsg('Đổi mật khẩu tài khoản Shipper thành công (UC05)!')
+    setPwdMsg('Đổi mật khẩu tài khoản Shipper thành công!')
     setOldPassword('')
     setNewPassword('')
     setConfirmPassword('')
@@ -66,10 +66,10 @@ export default function ShipperHoSoPage() {
     <div style={{ maxWidth: '800px', margin: '0 auto', fontFamily: 'sans-serif' }}>
       <div style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Quản lý Thông tin Cá nhân Shipper (UC04, UC05)
+          Quản lý Thông tin Cá nhân Shipper
         </h2>
         <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-          Hồ sơ sinh viên giao hàng nội khu, hạn mức ứng tiền (BR-35) và bảo mật tài khoản (BR-02, BR-28).
+          Hồ sơ sinh viên giao hàng nội khu, hạn mức ứng tiền COD và bảo mật tài khoản.
         </p>
       </div>
 
@@ -81,7 +81,7 @@ export default function ShipperHoSoPage() {
       )}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '20px' }}>
-        {/* Card 1: Hồ sơ cá nhân (UC04) */}
+        {/* Card 1: Hồ sơ cá nhân */}
         <div style={{ background: '#ffffff', borderRadius: '14px', border: '1px solid #e2e8f0', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
             <img
@@ -95,7 +95,7 @@ export default function ShipperHoSoPage() {
               </h3>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span style={{ fontSize: '0.75rem', color: '#059669', background: '#ecfdf5', padding: '2px 8px', borderRadius: '4px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  <ShieldCheck size={14} /> Shipper NEU Đã Duyệt (BR-04)
+                  <ShieldCheck size={14} /> Shipper NEU Đã Duyệt
                 </span>
               </div>
             </div>
@@ -117,10 +117,10 @@ export default function ShipperHoSoPage() {
             </div>
           </div>
 
-          {/* COD Advance Limit (BR-35) */}
+          {/* COD Advance Limit */}
           <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px', padding: '12px', marginBottom: '20px', fontSize: '0.8125rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-              <span style={{ color: '#92400e' }}>Tiền đang ứng COD (BR-35):</span>
+              <span style={{ color: '#92400e' }}>Tiền đang ứng COD:</span>
               <strong style={{ color: '#b45309' }}>{currentShipper.currentAdvanceAmount.toLocaleString('vi-VN')}đ</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -169,12 +169,12 @@ export default function ShipperHoSoPage() {
                 gap: '6px',
               }}
             >
-              <Save size={16} /> Lưu Thay Đổi Hồ Sơ (UC04)
+              <Save size={16} /> Lưu Thay Đổi Hồ Sơ
             </button>
           </form>
         </div>
 
-        {/* Card 2: Đổi mật khẩu (UC05) */}
+        {/* Card 2: Đổi mật khẩu */}
         <div style={{ background: '#ffffff', borderRadius: '14px', border: '1px solid #e2e8f0', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
             <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: '#e0f2fe', color: '#0369a1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -182,7 +182,7 @@ export default function ShipperHoSoPage() {
             </div>
             <div>
               <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>
-                Đổi Mật Khẩu Shipper (UC05)
+                Đổi Mật Khẩu Shipper
               </h3>
               <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Bảo mật tài khoản sinh viên giao hàng</span>
             </div>
@@ -259,7 +259,7 @@ export default function ShipperHoSoPage() {
                 cursor: 'pointer',
               }}
             >
-              Cập nhật Mật khẩu Mới (UC05)
+              Cập nhật Mật khẩu Mới
             </button>
           </form>
         </div>

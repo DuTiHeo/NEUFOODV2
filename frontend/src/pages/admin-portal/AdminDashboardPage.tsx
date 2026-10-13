@@ -38,7 +38,7 @@ export default function AdminDashboardPage() {
 
         <div style={{ background: '#ffffff', borderRadius: '12px', padding: '18px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.8125rem', color: '#64748b', fontWeight: 600 }}>Cảnh báo SLA &gt;20p (BR-23)</span>
+            <span style={{ fontSize: '0.8125rem', color: '#64748b', fontWeight: 600 }}>Cảnh báo SLA &gt;20p</span>
             <AlertTriangle size={18} color="#dc2626" />
           </div>
           <p style={{ fontSize: '1.75rem', fontWeight: 800, color: slaBreachedOrders.length > 0 ? '#dc2626' : '#059669', margin: '8px 0 0' }}>
@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
 
         <div style={{ background: '#ffffff', borderRadius: '12px', padding: '18px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.8125rem', color: '#64748b', fontWeight: 600 }}>Sự cố cần giải quyết (BR-36)</span>
+            <span style={{ fontSize: '0.8125rem', color: '#64748b', fontWeight: 600 }}>Sự cố cần giải quyết</span>
             <AlertTriangle size={18} color="#d97706" />
           </div>
           <p style={{ fontSize: '1.75rem', fontWeight: 800, color: incidentOrders.length > 0 ? '#d97706' : '#0f172a', margin: '8px 0 0' }}>
@@ -73,7 +73,7 @@ export default function AdminDashboardPage() {
       {/* Live Active Orders Monitor */}
       <div style={{ background: '#ffffff', borderRadius: '12px', padding: '20px', border: '1px solid #e2e8f0' }}>
         <h3 style={{ margin: '0 0 16px', fontSize: '1rem', fontWeight: 700, color: '#0f172a' }}>
-          Giám sát trạng thái thời gian thực toàn hệ thống (UC37)
+          Giám sát trạng thái thời gian thực toàn hệ thống
         </h3>
 
         <div style={{ overflowX: 'auto' }}>
@@ -85,7 +85,7 @@ export default function AdminDashboardPage() {
                 <th style={{ padding: '10px 12px' }}>Điểm nhận / Tòa</th>
                 <th style={{ padding: '10px 12px' }}>Shipper phụ trách</th>
                 <th style={{ padding: '10px 12px' }}>Trạng thái</th>
-                <th style={{ padding: '10px 12px' }}>SLA 20p (BR-23)</th>
+                <th style={{ padding: '10px 12px' }}>Thời gian SLA</th>
                 <th style={{ padding: '10px 12px', textAlign: 'right' }}>Tổng tiền</th>
               </tr>
             </thead>

@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
       /* ignore */
     }
 
-    // Merge any pending additions coming from static pages (e.g. RANDOM.html)
+    // Merge any pending additions coming from static pages
     try {
       const pendingRaw = sessionStorage.getItem(PENDING_KEY)
       if (pendingRaw) {

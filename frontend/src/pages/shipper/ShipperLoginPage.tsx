@@ -22,14 +22,14 @@ export default function ShipperLoginPage() {
       return
     }
 
-    // BR-04, EX-02: Shipper phải là sinh viên NEU và được Admin phê duyệt trước khi nhận đơn
+    // Shipper phải là sinh viên NEU và được Admin phê duyệt trước khi nhận đơn
     if (activeShipper.status === 'pending') {
-      setErrorMessage('LỖI EX-02 (BR-04): Hồ sơ đăng ký của bạn đang chờ Admin phê duyệt. Chưa thể đăng nhập phân hệ Shipper.')
+      setErrorMessage('Hồ sơ đăng ký của bạn đang chờ phê duyệt. Chưa thể đăng nhập phân hệ Shipper.')
       return
     }
 
     if (activeShipper.status === 'rejected') {
-      setErrorMessage(`LỖI EX-04 (BR-03): Hồ sơ của bạn đã bị Admin từ chối: "${activeShipper.rejectionReason || 'Không hợp lệ'}". Vui lòng nộp lại hồ sơ tại Phân hệ Khách hàng.`)
+      setErrorMessage(`Hồ sơ của bạn đã bị từ chối: "${activeShipper.rejectionReason || 'Không hợp lệ'}". Vui lòng nộp lại hồ sơ tại Phân hệ Khách hàng.`)
       return
     }
 
@@ -48,16 +48,16 @@ export default function ShipperLoginPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: 'sans-serif' }}>
-      <div style={{ maxWidth: '480px', width: '100%', background: '#ffffff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(2, 132, 199, 0.12)', border: '1px solid #bae6fd', overflow: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: 'sans-serif' }}>
+      <div style={{ maxWidth: '480px', width: '100%', background: '#ffffff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(5, 150, 105, 0.12)', border: '1px solid #d1fae5', overflow: 'hidden' }}>
         {/* Banner */}
-        <div style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', color: '#ffffff', padding: '28px 24px', textAlign: 'center' }}>
+        <div style={{ background: 'linear-gradient(135deg, #059669 0%, #047857 100%)', color: '#ffffff', padding: '28px 24px', textAlign: 'center' }}>
           <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(255,255,255,0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
             <Bike size={32} color="#ffffff" />
           </div>
-          <h1 style={{ margin: '0 0 6px', fontSize: '1.375rem', fontWeight: 800 }}>Đăng Nhập Shipper Nội Khu (UC02)</h1>
+          <h1 style={{ margin: '0 0 6px', fontSize: '1.375rem', fontWeight: 800 }}>Đăng Nhập Shipper Nội Khu</h1>
           <p style={{ margin: 0, fontSize: '0.8125rem', opacity: 0.9 }}>
-            Chỉ dành cho sinh viên NEU đã được Admin phê duyệt (BR-02, BR-04)
+            Dành cho sinh viên NEU đã được phê duyệt làm người giao hàng
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export default function ShipperLoginPage() {
                     color: s.status === 'approved' ? '#059669' : s.status === 'pending' ? '#d97706' : '#dc2626',
                   }}
                 >
-                  {s.status === 'approved' ? 'Đã duyệt (BR-04)' : s.status === 'pending' ? 'Chờ duyệt' : 'Bị từ chối'}
+                  {s.status === 'approved' ? 'Đã duyệt' : s.status === 'pending' ? 'Chờ duyệt' : 'Bị từ chối'}
                 </span>
               </button>
             ))}
@@ -148,14 +148,14 @@ export default function ShipperLoginPage() {
                 boxShadow: '0 4px 10px rgba(2, 132, 199, 0.25)',
               }}
             >
-              <LogIn size={18} /> Đăng Nhập Vào Phân Hệ Shipper (UC02)
+              <LogIn size={18} /> Đăng Nhập Vào Phân Hệ Shipper
             </button>
           </form>
 
           <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '0.8125rem', color: '#64748b' }}>
             Chưa có tài khoản shipper?{' '}
             <Link to="/dang-ky-shipper" style={{ color: '#0284c7', fontWeight: 700, textDecoration: 'none' }}>
-              Đăng ký nộp hồ sơ tại đây (UC27) &rarr;
+              Đăng ký nộp hồ sơ tại đây &rarr;
             </Link>
           </div>
         </div>

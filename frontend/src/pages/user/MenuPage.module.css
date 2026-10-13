@@ -1,15 +1,15 @@
 .menu {
-  /* Tông xanh biển nhạt bám logo NEUFood (--color-brand #003f87) */
-  --menu-accent: #1e6bb8;
-  --menu-accent-mid: #0d5a9e;
-  --menu-accent-soft: #e3f0fb;
-  --menu-accent-soft-2: #cfe5f7;
-  --menu-accent-dark: #003f87;
-  --menu-green: #16a34a;
+  /* Tông Fresh & Green (#059669) */
+  --menu-accent: #059669;
+  --menu-accent-mid: #047857;
+  --menu-accent-soft: #ecfdf5;
+  --menu-accent-soft-2: #d1fae5;
+  --menu-accent-dark: #064e3b;
+  --menu-green: #10b981;
   --menu-card: #ffffff;
-  --menu-border: #c5d9ec;
-  --menu-muted: #5c6b7a;
-  --menu-page-bg: #f0f6fc;
+  --menu-border: #d1fae5;
+  --menu-muted: #64748b;
+  --menu-page-bg: #f0fdf4;
 
   min-height: 100vh;
   background-color: var(--menu-page-bg);

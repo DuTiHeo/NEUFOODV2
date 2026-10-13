@@ -36,17 +36,17 @@ export default function CanteenLayout() {
     textDecoration: 'none',
     fontSize: '0.875rem',
     fontWeight: isActive ? 700 : 500,
-    color: isActive ? '#881337' : '#475569',
-    background: isActive ? '#fff1f2' : 'transparent',
+    color: isActive ? '#0d9488' : '#475569',
+    background: isActive ? '#f0fdfa' : 'transparent',
     transition: 'all 0.2s',
   })
 
   let pageTitle = 'Bếp & Đơn hàng Canteen A2'
-  if (pathname.includes('/canteen/thuc-don')) pageTitle = 'Quản lý Thực đơn (Thêm, Sửa, Đổi giá) - UC19'
-  else if (pathname.includes('/canteen/hoan-tien')) pageTitle = 'Hoàn tiền khi đơn bị hủy (Gồm hoàn khoản Shipper ứng COD) - UC24'
-  else if (pathname.includes('/canteen/mon')) pageTitle = 'Kho món & Cập nhật Trạng thái Còn/Hết (BR-05) - UC20'
-  else if (pathname.includes('/canteen/bao-cao')) pageTitle = 'Báo cáo Doanh thu & Thống kê - UC25'
-  else if (pathname.includes('/canteen/danh-gia')) pageTitle = 'Đánh giá & Trả lời Phản hồi Khách hàng - UC26'
+  if (pathname.includes('/canteen/thuc-don')) pageTitle = 'Quản lý Thực đơn (Thêm, Sửa, Đổi giá)'
+  else if (pathname.includes('/canteen/hoan-tien')) pageTitle = 'Hoàn tiền khi đơn bị hủy'
+  else if (pathname.includes('/canteen/mon')) pageTitle = 'Kho món & Cập nhật Trạng thái Còn/Hết'
+  else if (pathname.includes('/canteen/bao-cao')) pageTitle = 'Báo cáo Doanh thu & Thống kê'
+  else if (pathname.includes('/canteen/danh-gia')) pageTitle = 'Đánh giá & Trả lời Phản hồi Khách hàng'
 
   const handleLogout = () => {
     logoutCanteen()
@@ -86,7 +86,7 @@ export default function CanteenLayout() {
               width: '40px',
               height: '40px',
               borderRadius: '10px',
-              background: '#881337',
+              background: '#0d9488',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
@@ -96,7 +96,7 @@ export default function CanteenLayout() {
             <Store size={22} />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.125rem', fontWeight: 800, color: '#881337', margin: 0 }}>Canteen A2</h2>
+            <h2 style={{ fontSize: '1.125rem', fontWeight: 800, color: '#0d9488', margin: 0 }}>Canteen A2</h2>
             <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Phân hệ Vận hành Bếp &amp; Quản trị</span>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function CanteenLayout() {
             </strong>
           </div>
           <div style={{ fontSize: '0.6875rem', color: '#64748b' }}>
-            {isManager ? 'Đang thực hiện UC19, UC24, UC25' : 'Nhân viên bán hàng & vận hành'}
+            {isManager ? 'Toàn quyền Quản lý Canteen' : 'Nhân viên bán hàng & vận hành'}
           </div>
         </div>
 
@@ -141,16 +141,16 @@ export default function CanteenLayout() {
 
           <NavLink to="/canteen/mon" style={navCls}>
             <Utensils size={18} />
-            <span>Kho món (Còn/Hết - UC20)</span>
+            <span>Kho món (Còn / Hết)</span>
           </NavLink>
 
           <NavLink to="/canteen/danh-gia" style={navCls}>
             <MessageSquare size={18} />
-            <span>Đánh giá &amp; Phản hồi (UC26)</span>
+            <span>Đánh giá &amp; Phản hồi</span>
           </NavLink>
 
           {/* SECTION: DÀNH RIÊNG QUẢN LÝ */}
-          <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: isManager ? '#881337' : '#94a3b8', textTransform: 'uppercase', padding: '16px 16px 4px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: isManager ? '#0d9488' : '#94a3b8', textTransform: 'uppercase', padding: '16px 16px 4px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span>Nghiệp vụ Quản lý</span>
             {!isManager && <Lock size={12} />}
           </div>
@@ -158,19 +158,19 @@ export default function CanteenLayout() {
           <NavLink
             to="/canteen/thuc-don"
             style={navCls}
-            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen (UC19)' : ''}
+            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen' : ''}
           >
             <MenuSquare size={18} />
-            <span style={{ flex: 1 }}>Quản lý Thực đơn (UC19)</span>
+            <span style={{ flex: 1 }}>Quản lý Thực đơn</span>
           </NavLink>
 
           <NavLink
             to="/canteen/hoan-tien"
             style={navCls}
-            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen (UC24)' : ''}
+            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen' : ''}
           >
             <RotateCcw size={18} />
-            <span style={{ flex: 1 }}>Hoàn tiền đơn hủy (UC24)</span>
+            <span style={{ flex: 1 }}>Hoàn tiền đơn hủy</span>
             {refundCount > 0 ? (
               <span style={{ background: '#f59e0b', color: '#ffffff', fontSize: '0.6875rem', fontWeight: 700, padding: '2px 7px', borderRadius: '9999px' }}>
                 {refundCount}
@@ -181,10 +181,10 @@ export default function CanteenLayout() {
           <NavLink
             to="/canteen/bao-cao"
             style={navCls}
-            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen (UC25)' : ''}
+            title={!isManager ? 'Chức năng chỉ dành riêng cho Quản lý Canteen' : ''}
           >
             <BarChart3 size={18} />
-            <span>Báo cáo doanh thu (UC25)</span>
+            <span>Báo cáo doanh thu</span>
           </NavLink>
         </nav>
 
@@ -230,9 +230,9 @@ export default function CanteenLayout() {
                 width: '100%',
                 padding: '8px 10px',
                 borderRadius: '8px',
-                border: '1px solid #fecaca',
-                background: '#fff1f2',
-                color: '#881337',
+                border: '1px solid #99f6e4',
+                background: '#f0fdfa',
+                color: '#0f766e',
                 fontSize: '0.75rem',
                 fontWeight: 700,
                 cursor: 'pointer',
@@ -264,7 +264,7 @@ export default function CanteenLayout() {
               gap: '6px',
             }}
           >
-            <LogOut size={14} /> Đăng xuất Canteen (UC03)
+            <LogOut size={14} /> Đăng xuất Canteen
           </button>
         </div>
       </aside>

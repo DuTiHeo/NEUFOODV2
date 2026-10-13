@@ -26,12 +26,12 @@ export default function DangKyShipperPage() {
     setErrorMessage('')
 
     if (!studentId.startsWith('112') && !studentId.startsWith('11')) {
-      setErrorMessage('Mã sinh viên không hợp lệ. Chỉ sinh viên NEU mới được đăng ký làm shipper (BR-01, BR-04).')
+      setErrorMessage('Mã sinh viên không hợp lệ. Chỉ sinh viên NEU mới được đăng ký làm shipper.')
       return
     }
 
     if (!email.endsWith('@neu.edu.vn')) {
-      setErrorMessage('Vui lòng sử dụng email trường NEU (@neu.edu.vn) để xác thực (BR-01).')
+      setErrorMessage('Vui lòng sử dụng email trường NEU (@neu.edu.vn) để xác thực.')
       return
     }
 
@@ -67,15 +67,15 @@ export default function DangKyShipperPage() {
       {/* Main Container */}
       <div style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
         {/* Banner */}
-        <div style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', color: '#ffffff', padding: '32px 28px' }}>
+        <div style={{ background: 'linear-gradient(135deg, #059669 0%, #047857 100%)', color: '#ffffff', padding: '32px 28px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Bike size={28} color="#ffffff" />
             </div>
             <div>
-              <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Đăng Ký Làm Shipper Nội Khu NEU (UC27)</h1>
+              <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Đăng Ký Làm Shipper Nội Khu NEU</h1>
               <p style={{ margin: 0, fontSize: '0.875rem', opacity: 0.9 }}>
-                Dành riêng cho sinh viên Đại học Kinh tế Quốc dân (BR-01, BR-03, BR-04)
+                Dành riêng cho sinh viên Đại học Kinh tế Quốc dân
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function DangKyShipperPage() {
           <div style={{ margin: '24px 24px 0', padding: '16px 20px', borderRadius: '10px', background: existingProfile.status === 'approved' ? '#ecfdf5' : existingProfile.status === 'rejected' ? '#fef2f2' : '#fffbeb', border: `1px solid ${existingProfile.status === 'approved' ? '#a7f3d0' : existingProfile.status === 'rejected' ? '#fecaca' : '#fde68a'}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
               <strong style={{ fontSize: '0.9375rem', color: existingProfile.status === 'approved' ? '#065f46' : existingProfile.status === 'rejected' ? '#991b1b' : '#92400e' }}>
-                Trạng thái hồ sơ: {existingProfile.status === 'approved' ? 'Đã được Phê duyệt (BR-04)' : existingProfile.status === 'rejected' ? 'Bị từ chối' : 'Đang chờ Admin phê duyệt (UC35)'}
+                Trạng thái hồ sơ: {existingProfile.status === 'approved' ? 'Đã được Phê duyệt' : existingProfile.status === 'rejected' ? 'Bị từ chối' : 'Đang chờ xét duyệt'}
               </strong>
               {existingProfile.status === 'approved' && (
                 <Link to="/shipper" style={{ padding: '6px 14px', borderRadius: '6px', background: '#059669', color: '#ffffff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 700 }}>
@@ -97,17 +97,17 @@ export default function DangKyShipperPage() {
 
             {existingProfile.status === 'pending' && (
               <p style={{ margin: 0, fontSize: '0.8125rem', color: '#b45309', lineHeight: 1.5 }}>
-                Hồ sơ của bạn đã được tiếp nhận và đang chờ Ban Quản Trị Hệ Thống xem xét đối chiếu thẻ sinh viên (UC35). Bạn sẽ nhận được thông báo ngay khi hồ sơ được kích hoạt.
+                Hồ sơ của bạn đã được tiếp nhận và đang chờ Ban Quản Trị xem xét đối chiếu thẻ sinh viên. Bạn sẽ nhận được thông báo ngay khi hồ sơ được kích hoạt.
               </p>
             )}
 
             {existingProfile.status === 'rejected' && (
               <div>
                 <p style={{ margin: '0 0 8px', fontSize: '0.8125rem', color: '#dc2626' }}>
-                  Lý do từ chối (BR-03, EX-04): <strong>{existingProfile.rejectionReason || 'Ảnh thẻ sinh viên không rõ nét hoặc thông tin không trùng khớp.'}</strong>
+                  Lý do từ chối: <strong>{existingProfile.rejectionReason || 'Ảnh thẻ sinh viên không rõ nét hoặc thông tin không trùng khớp.'}</strong>
                 </p>
                 <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748b' }}>
-                  Theo quy định BR-03: Bạn có thể cập nhật lại thông tin và bấm gửi lại hồ sơ bên dưới.
+                  Bạn có thể cập nhật lại thông tin và bấm gửi lại hồ sơ bên dưới.
                 </p>
               </div>
             )}
@@ -121,7 +121,7 @@ export default function DangKyShipperPage() {
             <div>
               <strong>Nộp hồ sơ đăng ký thành công!</strong>
               <div style={{ fontSize: '0.8125rem' }}>
-                Hồ sơ đã được chuyển tới Admin Portal (UC35) để thẩm định và phê duyệt (BR-04).
+                Hồ sơ đã được chuyển tới Ban Quản Trị để thẩm định và phê duyệt.
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default function DangKyShipperPage() {
 
             <div>
               <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>
-                Mã sinh viên NEU (BR-01, BR-04):
+                Mã sinh viên NEU:
               </label>
               <input
                 type="text"
@@ -202,7 +202,7 @@ export default function DangKyShipperPage() {
           {/* Student Card Photo Upload */}
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>
-              Ảnh chụp thẻ sinh viên NEU (BR-03, EX-04 - Yêu cầu bắt buộc):
+              Ảnh chụp thẻ sinh viên NEU (Yêu cầu bắt buộc):
             </label>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <img
@@ -235,7 +235,7 @@ export default function DangKyShipperPage() {
                 style={{ marginTop: '2px' }}
               />
               <span>
-                Tôi cam kết tuân thủ <strong>Quy chế giao hàng nội khu NEUFood</strong>: Ứng tiền món cho Canteen với đơn COD (BR-34), giao đúng phòng học (BR-08), tuân thủ hạn mức ứng tiền 500.000đ (BR-35) và SLA 20 phút (BR-23).
+                Tôi cam kết tuân thủ <strong>Quy chế giao hàng nội khu NEUFood</strong>: Ứng tiền món cho Canteen với đơn COD, giao đúng phòng học và đảm bảo thời gian giao hàng.
               </span>
             </label>
           </div>
@@ -253,7 +253,7 @@ export default function DangKyShipperPage() {
               padding: '14px',
               borderRadius: '8px',
               border: 'none',
-              background: 'linear-gradient(to right, #0284c7, #0369a1)',
+              background: 'linear-gradient(to right, #059669, #047857)',
               color: '#ffffff',
               fontWeight: 700,
               fontSize: '0.9375rem',
@@ -262,10 +262,10 @@ export default function DangKyShipperPage() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '8px',
-              boxShadow: '0 4px 12px rgba(2, 132, 199, 0.25)',
+              boxShadow: '0 4px 12px rgba(5, 150, 105, 0.25)',
             }}
           >
-            <Send size={18} /> Gửi Hồ Sơ Đăng Ký Tới Ban Quản Trị Hệ Thống (UC27)
+            <Send size={18} /> Gửi Hồ Sơ Đăng Ký
           </button>
         </form>
       </div>

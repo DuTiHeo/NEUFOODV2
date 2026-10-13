@@ -1,29 +1,86 @@
-import styles from "./Story.module.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Leaf, ArrowLeft, Heart, Award, Sparkles } from 'lucide-react'
+import styles from './Story.module.css'
 
-export default function Story() {
+export default function StoryPage() {
   return (
-    <div className={styles.container}>
-      <img src="/neu-food.png" alt="NEU Food Logo" className={styles.logo} />
-      <h1 className={styles.title}>Câu chuyện của chúng tôi</h1>
-  
-      <div className={styles.content}>
-        <p>
-      Ở một buổi trưa vội vã nơi giảng đường đông đúc, khi chuông báo giờ ra chơi vừa vang lên, dòng sinh viên lại đổ xuống canteen như một cơn sóng quen thuộc. Những hàng người nối dài, tiếng gọi món dồn dập, nhưng đi kèm với đó là sự quá tải và chậm trễ. Không ít sinh viên đành quay trở lại lớp khi chưa kịp ăn gì. Ở các tầng cao như 7, 8, 9, 10, nhiều bạn thậm chí từ bỏ việc xuống canteen, bởi chỉ riêng việc di chuyển đã tiêu tốn gần hết khoảng thời gian nghỉ ngắn ngủi.
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.topNav}>
+          <Link to="/" className={styles.backLink}>
+            <ArrowLeft size={18} />
+            <span>Về Trang chủ</span>
+          </Link>
+          <div className={styles.brandBadge}>
+            <Leaf size={18} />
+            <span>NEUFood Story</span>
+          </div>
+        </div>
 
-Đứng phía sau quầy phục vụ, chị Hương một nhân viên lâu năm của canteen NEU. chứng kiến tình trạng này diễn ra mỗi ngày. Chị nhận ra một vấn đề lớn: dù lượng sinh viên đông, nhu cầu cao, nhưng doanh thu của canteen vẫn chưa tương xứng. Nguyên nhân không nằm ở chất lượng món ăn, mà ở cách vận hành chưa tối ưu. Những giờ cao điểm thì quá tải, còn những thời điểm khác lại dư thừa đồ ăn. Việc phục vụ hoàn toàn thủ công khiến quá trình bán hàng bị gián đoạn, mất đi nhiều cơ hội phục vụ khách hàng.
+        <header className={styles.header}>
+          <span className={styles.subtitle}>HÀNH TRÌNH KHỞI TẠO</span>
+          <h1 className={styles.title}>Về chúng tôi — NEUFood</h1>
+          <p className={styles.lead}>
+            Giải pháp đặt món thông minh và giao hàng nội khu, mang năng lượng tươi mới tới từng giảng đường NEU.
+          </p>
+        </header>
 
-Chị Hương bắt đầu suy nghĩ nghiêm túc hơn về việc thay đổi. Nếu có thể giảm thời gian chờ đợi, phân bổ đơn hàng hợp lý và giúp sinh viên tiếp cận đồ ăn dễ dàng hơn, thì không chỉ trải nghiệm được cải thiện mà doanh thu của canteen cũng sẽ tăng lên đáng kể. Và rồi một câu hỏi xuất hiện: liệu công nghệ có thể giải quyết tất cả những điều đó?
+        <div className={styles.content}>
+          <section className={styles.section}>
+            <h2 className={styles.heading2}>
+              <Sparkles size={20} className={styles.iconAccent} />
+              Khởi nguồn từ thực tế giảng đường
+            </h2>
+            <p>
+              Mỗi giờ giải lao giữa các ca học tại Đại học Kinh tế Quốc dân, những hành lang và sảnh thang máy các tòa nhà A1, A2, B, C, D luôn nhộn nhịp. Tuy nhiên, khoảng nghỉ ngắn ngủi 15-20 phút thường không đủ để sinh viên từ các tầng cao di chuyển xuống canteen, xếp hàng mua đồ ăn và quay trở lại lớp kịp giờ.
+            </p>
+            <p>
+              Nhiều bạn đành bỏ bữa trưa hoặc dùng đồ ăn vặt tạm bợ. Nhận thấy bất cập đó trong vận hành dịch vụ học đường, dự án <strong>NEUFood</strong> đã được thai nghén như một giải pháp số hóa toàn diện cho hệ thống ẩm thực trong khuôn viên trường.
+            </p>
+          </section>
 
-Từ ý tưởng ấy, NEUFood ra đời một nền tảng đặt đồ ăn trực tuyến dành riêng cho sinh viên trong trường. Thông qua hệ thống này, sinh viên có thể xem thực đơn, đặt món trước và lựa chọn thời gian nhận phù hợp. Điều này giúp giảm đáng kể tình trạng chen lấn, đồng thời phân tán lượng khách theo từng khung giờ, giúp canteen vận hành mượt mà hơn.
+          <section className={styles.section}>
+            <h2 className={styles.heading2}>
+              <Heart size={20} className={styles.iconAccent} />
+              Mô hình kết nối 3 bên hiệu quả
+            </h2>
+            <p>
+              NEUFood kết nối trực tiếp ba nhân tố nòng cốt trong đời sống sinh viên:
+            </p>
+            <div className={styles.cardsRow}>
+              <div className={styles.storyCard}>
+                <h3>Canteen Bếp A2</h3>
+                <p>Nấu mới mỗi ngày, chủ động số lượng khẩu phần và tối ưu quy trình ra món nhờ hệ thống quản lý đơn hàng trực tuyến.</p>
+              </div>
+              <div className={styles.storyCard}>
+                <h3>Shipper Sinh viên</h3>
+                <p>Mạng lưới sinh viên giao hàng nội khu, kiếm thêm thu nhập chính đáng giữa các ca học mà không cần rời trường.</p>
+              </div>
+              <div className={styles.storyCard}>
+                <h3>Sinh viên &amp; Cán bộ</h3>
+                <p>Nhận đồ ăn nóng sốt ngay tại cửa phòng học, tiết kiệm thời gian nghỉ ngơi để tập trung học tập và làm việc.</p>
+              </div>
+            </div>
+          </section>
 
-Không dừng lại ở đó, NEUFood còn giúp canteen quản lý đơn hàng một cách khoa học, dự đoán nhu cầu theo thời điểm, từ đó chuẩn bị nguyên liệu hợp lý, giảm lãng phí và tối ưu chi phí. Nhờ vậy, doanh thu không chỉ tăng về số lượng đơn hàng mà còn tăng về hiệu quả vận hành.
+          <section className={styles.section}>
+            <h2 className={styles.heading2}>
+              <Award size={20} className={styles.iconAccent} />
+              Cam kết của NEUFood
+            </h2>
+            <p>
+              Chúng tôi tin rằng công nghệ chỉ thực sự có ý nghĩa khi giải quyết được những vấn đề thiết thực thường nhật. NEUFood cam kết không ngừng hoàn thiện trải nghiệm: từ độ tươi ngon của từng phần ăn, sự chính xác trong từng đơn hàng, đến thái độ phục vụ thân thiện của đội ngũ shipper sinh viên NEU.
+            </p>
+          </section>
+        </div>
 
-Từ một vấn đề tưởng chừng rất nhỏ trong đời sống hằng ngày, chị Hương đã góp phần xây dựng nên một hệ thống mang lại giá trị thực tế: giúp sinh viên ăn uống tiện lợi hơn, đồng thời giúp canteen phát triển bền vững hơn. NEUFood không chỉ là một trang web bán đồ ăn, mà còn là bước chuyển mình trong cách phục vụ, nơi công nghệ được sử dụng để nâng cao trải nghiệm và tối đa hóa hiệu quả kinh doanh.
-
-Và từ đó, mỗi giờ ra chơi không còn là áp lực thời gian, mà trở thành một khoảng nghỉ đúng nghĩa nơi chỉ cần một cú click, mọi thứ đã sẵn sàng.
-        </p>
+        <div className={styles.bottomCta}>
+          <Link to="/menu" className={styles.ctaButton}>
+            <span>Khám phá thực đơn ngay hôm nay</span>
+          </Link>
+        </div>
       </div>
-
     </div>
-  );
+  )
 }

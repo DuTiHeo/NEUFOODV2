@@ -18,7 +18,6 @@ import LichSuDonHangPage from '../pages/user/LichSuDonHangPage'
 import TaiKhoanPage from '../pages/user/TaiKhoanPage'
 import KhieuNaiPage from '../pages/user/KhieuNaiPage'
 import DangKyShipperPage from '../pages/user/DangKyShipperPage'
-import GanNeuPage from '../pages/user/GanNeuPage'
 import StoryPage from '../pages/user/StoryPage'
 import RecruitPage from '../pages/user/RecruitPage'
 
@@ -114,7 +113,6 @@ export const AppRoutes: React.FC = () => {
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="menu" element={<MenuPage />} />
-        <Route path="gan-neu" element={<GanNeuPage />} />
         <Route path="mon/:id" element={<ChiTietMonPage />} />
         <Route path="gio-hang" element={<GioHangPage />} />
         <Route path="thanh-toan" element={<ThanhToanPage />} />

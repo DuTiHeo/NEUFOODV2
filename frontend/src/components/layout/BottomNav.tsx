@@ -15,7 +15,7 @@ export default function BottomNav() {
       </NavLink>
       <NavLink className={tabClass} to="/menu">
         <Compass className={styles.dockIcon} strokeWidth={2} aria-hidden />
-        <span className={styles.dockText}>Menu</span>
+        <span className={styles.dockText}>Thực đơn</span>
       </NavLink>
       <NavLink className={tabClass} to="/gio-hang">
         <ShoppingBag className={styles.dockIcon} strokeWidth={2} aria-hidden />

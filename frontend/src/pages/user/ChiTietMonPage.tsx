@@ -96,7 +96,7 @@ export default function ChiTietMonPage() {
 
   const handleAddToCart = () => {
     if (isOutOfStock) {
-      alert('Món này hiện đang HẾT HÀNG tại Canteen A2 (BR-05). Vui lòng chọn món khác!')
+      alert('Món này hiện đang tạm hết hàng. Vui lòng chọn món khác!')
       return
     }
     add(dish.id, qty)
@@ -229,7 +229,7 @@ export default function ChiTietMonPage() {
                     }}
                   >
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>block</span>
-                    Hết món tại Canteen A2 (BR-05)
+                    Tạm hết món
                   </button>
                 ) : (
                   <button

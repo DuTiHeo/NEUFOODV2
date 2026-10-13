@@ -8,10 +8,9 @@ import {
   Search,
   Package,
   Shield,
-  MapPin,
+  Leaf,
   LogIn,
   UserPlus,
-  Gamepad2,
 } from 'lucide-react'
 import { useAdminAuth } from '../../contexts/AdminAuthContext'
 import { useCart } from '../../contexts/CartContext'
@@ -91,11 +90,11 @@ export default function Navbar() {
         <div className={styles.topnavLeft}>
           <Link to="/" className={styles.topnavLogo}>
             <img
-              src="/neu-food.png"
+              src="/logo.png?v=3"
               alt="NEUFood"
               className={styles.logoImg}
             />
-            <span>NEUFood</span>
+            <span className={styles.logoText}>NEUFood</span>
           </Link>
           <nav className={styles.topnavMenu}>
             <NavLink className={linkClass} end to="/">
@@ -104,15 +103,11 @@ export default function Navbar() {
             </NavLink>
             <NavLink className={linkClass} to="/menu">
               <UtensilsCrossed className={styles.topnavIcon} strokeWidth={2} aria-hidden />
-              Menu
-            </NavLink>
-            <NavLink className={linkClass} to="/gan-neu">
-              <MapPin className={styles.topnavIcon} strokeWidth={2} aria-hidden />
-              Các quán ăn gần NEU
+              Thực đơn
             </NavLink>
             <NavLink className={linkClass} to="/lich-su-don">
               <Package className={styles.topnavIcon} strokeWidth={2} aria-hidden />
-              Đơn hàng
+              Lịch sử đơn
             </NavLink>
             {isAdmin ? (
               <NavLink className={linkClass} to="/quan-ly">
@@ -128,7 +123,7 @@ export default function Navbar() {
             <input
               className={styles.topnavInput}
               type="search"
-              placeholder="Tìm món theo tên hoặc mô tả..."
+              placeholder="Tìm kiếm món ăn yêu thích..."
               value={menuSearch}
               onChange={(e) => setMenuSearch(e.target.value)}
               aria-label="Tìm món"
@@ -196,16 +191,8 @@ export default function Navbar() {
                     onClick={() => setShowAccountMenu(false)}
                   >
                     <Package className={styles.accountMenuIcon} strokeWidth={2} />
-                    Khiếu nại đơn hàng (UC17)
+                    Khiếu nại đơn hàng
                   </Link>
-                  <a
-                    href="/RANDOM.html"
-                    className={styles.accountMenuItem}
-                    onClick={() => setShowAccountMenu(false)}
-                  >
-                    <Gamepad2 className={styles.accountMenuIcon} strokeWidth={2} />
-                    Game ngẫu nhiên
-                  </a>
                 </div>
               )}
             </div>

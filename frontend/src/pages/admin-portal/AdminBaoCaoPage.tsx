@@ -28,10 +28,10 @@ export default function AdminBaoCaoPage() {
     <div>
       <div style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Báo cáo &amp; Thống kê Toàn hệ thống NEUFood (UC39)
+          Báo cáo &amp; Thống kê Toàn hệ thống NEUFood
         </h2>
         <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-          Dữ liệu khai thác và thống kê vận hành trên toàn khuôn viên Đại học Kinh tế Quốc dân (BR-28, EX-29).
+          Dữ liệu khai thác và thống kê vận hành trên toàn khuôn viên Đại học Kinh tế Quốc dân.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export default function AdminBaoCaoPage() {
           <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a' }}>
             {shippers.filter((s) => s.status === 'approved').length} sinh viên
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Đã phê duyệt (BR-04)</span>
+          <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Đã phê duyệt hoạt động</span>
         </div>
 
         <div style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '20px', boxShadow: '0 2px 6px rgba(0,0,0,0.02)' }}>
@@ -86,7 +86,7 @@ export default function AdminBaoCaoPage() {
           <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a' }}>
             {config.standardSLAMinutes} phút
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#059669', fontWeight: 600 }}>Chuẩn vận hành theo BR-23</span>
+          <span style={{ fontSize: '0.75rem', color: '#059669', fontWeight: 600 }}>Thời gian chuẩn vận hành</span>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export default function AdminBaoCaoPage() {
         {/* Phân bổ đơn hàng theo tòa */}
         <div style={{ background: '#ffffff', borderRadius: '14px', border: '1px solid #e2e8f0', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
           <h3 style={{ margin: '0 0 16px', fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>
-            Phân bổ Đơn hàng theo Tòa nhà Campus (BR-09)
+            Phân bổ Đơn hàng theo Tòa nhà Campus
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {Object.entries(ordersByBuilding).map(([b, count]) => {
@@ -118,7 +118,7 @@ export default function AdminBaoCaoPage() {
         {/* Cơ cấu thanh toán */}
         <div style={{ background: '#ffffff', borderRadius: '14px', border: '1px solid #e2e8f0', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
           <h3 style={{ margin: '0 0 16px', fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>
-            Cơ cấu Phương thức Thanh toán (BR-13, BR-32, BR-33)
+            Cơ cấu Phương thức Thanh toán
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
             <div style={{ background: '#f0f9ff', padding: '16px', borderRadius: '10px', border: '1px solid #bae6fd', textAlign: 'center' }}>
@@ -135,9 +135,9 @@ export default function AdminBaoCaoPage() {
           </div>
 
           <div style={{ background: '#f8fafc', padding: '12px 14px', borderRadius: '8px', fontSize: '0.75rem', color: '#64748b', lineHeight: 1.5 }}>
-            • Đơn COD được khống chế dưới <strong>{config.codMaxOrderLimit.toLocaleString()}đ</strong> để giảm rủi ro cho shipper (BR-33).
+            • Đơn COD được khống chế dưới <strong>{config.codMaxOrderLimit.toLocaleString()}đ</strong> để giảm rủi ro cho shipper.
             <br />
-            • Sinh viên boom hàng bị khóa Blacklist COD tự động theo BR-36.
+            • Sinh viên boom hàng bị tạm khóa tính năng COD tự động.
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function AdminDuyetShipperPage() {
 
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null)
   const [rejectModalShipper, setRejectModalShipper] = useState<ShipperProfile | null>(null)
-  const [rejectReason, setRejectReason] = useState('Ảnh thẻ sinh viên bị mờ / Không rõ mã SV (EX-04)')
+  const [rejectReason, setRejectReason] = useState('Ảnh thẻ sinh viên bị mờ / Không rõ mã SV')
 
   function handleApprove(id: string) {
     approveShipper(id, true)
@@ -24,7 +24,7 @@ export default function AdminDuyetShipperPage() {
     <div>
       <div style={{ marginBottom: '20px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Xét duyệt hồ sơ Shipper nội khu (UC35, BR-03, BR-04)
+          Xét duyệt hồ sơ Shipper nội khu
         </h2>
         <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0 }}>
           Đối soát thẻ sinh viên NEU và số điện thoại trước khi cấp quyền nhận đơn cho sinh viên.
@@ -38,7 +38,7 @@ export default function AdminDuyetShipperPage() {
               <th style={{ padding: '12px 16px' }}>Mã SV NEU</th>
               <th style={{ padding: '12px 16px' }}>Họ và tên</th>
               <th style={{ padding: '12px 16px' }}>Liên hệ (Email / SĐT)</th>
-              <th style={{ padding: '12px 16px' }}>Ảnh thẻ sinh viên (BR-03)</th>
+              <th style={{ padding: '12px 16px' }}>Ảnh thẻ sinh viên</th>
               <th style={{ padding: '12px 16px' }}>Trạng thái hồ sơ</th>
               <th style={{ padding: '12px 16px', textAlign: 'right' }}>Thao tác Admin</th>
             </tr>
@@ -137,7 +137,7 @@ export default function AdminDuyetShipperPage() {
                         }}
                       >
                         <X size={14} />
-                        Từ chối (BR-03)
+                        Từ chối
                       </button>
                     </div>
                   ) : (
@@ -169,13 +169,13 @@ export default function AdminDuyetShipperPage() {
         </div>
       ) : null}
 
-      {/* REJECT MODAL WITH MANDATORY REASON (BR-03) */}
+      {/* REJECT MODAL WITH MANDATORY REASON */}
       {rejectModalShipper ? (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '16px' }}>
           <div style={{ background: '#ffffff', borderRadius: '12px', padding: '24px', maxWidth: '420px', width: '100%' }}>
             <h3 style={{ margin: '0 0 8px', color: '#b91c1c' }}>Từ chối hồ sơ #{rejectModalShipper.studentId}</h3>
             <p style={{ fontSize: '0.8125rem', color: '#64748b', marginBottom: '14px' }}>
-              Quy định BR-03: Bị từ chối phải có lý do cụ thể và mở quyền cho sinh viên nộp lại.
+              Vui lòng nêu rõ lý do để sinh viên cập nhật lại hồ sơ.
             </p>
 
             <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '6px' }}>
@@ -186,7 +186,7 @@ export default function AdminDuyetShipperPage() {
               onChange={(e) => setRejectReason(e.target.value)}
               style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #cbd5e1', marginBottom: '16px', fontSize: '0.8125rem' }}
             >
-              <option value="Ảnh thẻ sinh viên bị mờ / Không rõ mã SV (EX-04)">Ảnh thẻ sinh viên bị mờ / Không rõ mã SV (EX-04)</option>
+              <option value="Ảnh thẻ sinh viên bị mờ / Không rõ mã SV">Ảnh thẻ sinh viên bị mờ / Không rõ mã SV</option>
               <option value="Mã sinh viên không khớp với hệ thống trường NEU">Mã sinh viên không khớp với hệ thống trường NEU</option>
               <option value="Tài khoản sinh viên đang trong danh sách bị kỷ luật">Tài khoản sinh viên đang trong danh sách bị kỷ luật</option>
             </select>
@@ -204,7 +204,7 @@ export default function AdminDuyetShipperPage() {
                 onClick={handleRejectSubmit}
                 style={{ padding: '8px 16px', borderRadius: '6px', border: 'none', background: '#dc2626', color: '#ffffff', fontWeight: 600, cursor: 'pointer' }}
               >
-                Xác nhận từ chối (BR-03)
+                Xác nhận từ chối
               </button>
             </div>
           </div>

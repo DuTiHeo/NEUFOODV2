@@ -40,7 +40,7 @@ export default function ShipperDangGiaoPage() {
         <h3 style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 800, color: '#0f172a' }}>
           Đơn đang giao ({myOrders.length} / 5 đơn)
         </h3>
-        <span style={{ fontSize: '0.6875rem', color: '#0284c7', fontWeight: 600 }}>Tối đa 5 đơn (BR-19)</span>
+        <span style={{ fontSize: '0.6875rem', color: '#0284c7', fontWeight: 600 }}>Tối đa 5 đơn cùng lúc</span>
       </div>
 
       {myOrders.length === 0 ? (
@@ -134,28 +134,39 @@ export default function ShipperDangGiaoPage() {
                 {/* Workflow Buttons */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {isAssigned ? (
-                    <button
-                      type="button"
-                      onClick={() => shipperMarkPickedUp(ord.id)}
-                      style={{
-                        width: '100%',
-                        padding: '10px',
-                        borderRadius: '8px',
-                        border: 'none',
-                        background: '#0284c7',
-                        color: '#ffffff',
-                        fontSize: '0.8125rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px',
-                      }}
-                    >
-                      <Package size={16} />
-                      <span>1. Đã lấy món tại Canteen A2</span>
-                    </button>
+                    <div>
+                      {isCod ? (
+                        <div style={{ background: '#fffbeb', border: '1px solid #fef3c7', borderRadius: '8px', padding: '8px 10px', fontSize: '0.75rem', color: '#92400e', marginBottom: '8px' }}>
+                          <strong>Đơn COD:</strong> Cần ứng trước tiền món <strong>{formatPrice(ord.subtotal)}</strong> cho Canteen A2. Sau khi nhận túi đồ, hãy bấm nút dưới đây để đi giao.
+                        </div>
+                      ) : (
+                        <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '8px 10px', fontSize: '0.75rem', color: '#166534', marginBottom: '8px' }}>
+                          Đơn Online (0đ ứng): Đọc mã <strong>#{ord.code}</strong> tại quầy Canteen A2 để nhận túi đồ.
+                        </div>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => shipperMarkPickedUp(ord.id)}
+                        style={{
+                          width: '100%',
+                          padding: '10px',
+                          borderRadius: '8px',
+                          border: 'none',
+                          background: '#0284c7',
+                          color: '#ffffff',
+                          fontSize: '0.8125rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '6px',
+                        }}
+                      >
+                        <Package size={16} />
+                        <span>1. Đã lấy món tại Canteen (Bắt đầu đi giao)</span>
+                      </button>
+                    </div>
                   ) : (
                     <button
                       type="button"
@@ -180,13 +191,13 @@ export default function ShipperDangGiaoPage() {
                       <CheckCircle size={16} />
                       <span>
                         {isCod
-                          ? `2. Đã thu ${formatPrice(ord.total)} & Giao thành công (BR-34)`
+                          ? `2. Đã thu ${formatPrice(ord.total)} & Giao thành công`
                           : '2. Xác nhận đã giao thành công'}
                       </span>
                     </button>
                   )}
 
-                  {/* Incident Report Button (UC32) */}
+                  {/* Incident Report Button */}
                   <button
                     type="button"
                     onClick={() => setIncidentOrder(ord)}
@@ -206,7 +217,7 @@ export default function ShipperDangGiaoPage() {
                     }}
                   >
                     <AlertTriangle size={13} />
-                    <span>Báo sự cố giao hàng (Boom hàng / Không liên lạc được)</span>
+                    <span>Báo sự cố giao hàng (Không liên lạc được)</span>
                   </button>
                 </div>
               </div>
@@ -215,7 +226,7 @@ export default function ShipperDangGiaoPage() {
         </div>
       )}
 
-      {/* INCIDENT REPORT MODAL (UC32, BR-36, EX-20) */}
+      {/* INCIDENT REPORT MODAL */}
       {incidentOrder ? (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '16px' }}>
           <div style={{ background: '#ffffff', borderRadius: '16px', maxWidth: '360px', width: '100%', padding: '20px' }}>
@@ -225,7 +236,7 @@ export default function ShipperDangGiaoPage() {
             </div>
 
             <div style={{ background: '#fffbeb', border: '1px solid #fef3c7', borderRadius: '8px', padding: '8px 10px', fontSize: '0.6875rem', color: '#92400e', marginBottom: '12px' }}>
-              <strong>Quy chế EX-20 &amp; BR-36:</strong> Phải liên hệ khách và chờ tối thiểu <strong>5 phút</strong>. Khách boom hàng COD sẽ bị tự động đưa vào Blacklist COD và hoàn lại tiền ứng cho bạn.
+              Vui lòng liên hệ khách và chờ tối thiểu <strong>5 phút</strong>. Nếu khách không nhận hàng, hệ thống sẽ hoàn lại tiền ứng cho bạn.
             </div>
 
             <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, marginBottom: '4px' }}>
@@ -236,7 +247,7 @@ export default function ShipperDangGiaoPage() {
               onChange={(e) => setIncidentReason(e.target.value)}
               style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '0.8125rem', marginBottom: '12px' }}
             >
-              <option value="Khách boom hàng / Từ chối nhận và thanh toán (BR-36)">Khách boom hàng / Từ chối nhận và thanh toán (BR-36)</option>
+              <option value="Khách từ chối nhận và thanh toán">Khách từ chối nhận và thanh toán</option>
               <option value="Không liên lạc được sau 5 phút chờ tại phòng">Không liên lạc được sau 5 phút chờ tại phòng</option>
               <option value="Khách không có mặt tại phòng học">Khách không có mặt tại phòng học</option>
               <option value="Hư hỏng đồ ăn hoặc sự cố di chuyển">Hư hỏng đồ ăn hoặc sự cố di chuyển</option>

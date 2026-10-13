@@ -12,7 +12,7 @@ export default function AdminBlacklistPage() {
     <div>
       <div style={{ marginBottom: '20px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Quản lý Tài khoản &amp; Danh sách Blacklist COD (UC34, BR-32, BR-36)
+          Quản lý Tài khoản &amp; Danh sách Hạn chế COD
         </h2>
         <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0 }}>
           Kiểm soát quyền truy cập và hạn chế tính năng COD đối với khách hàng vi phạm boom hàng.
@@ -38,7 +38,7 @@ export default function AdminBlacklistPage() {
           }}
         >
           <ShieldAlert size={16} />
-          <span>Danh sách Blacklist COD ({blacklistedUsers.length})</span>
+          <span>Danh sách Hạn chế COD ({blacklistedUsers.length})</span>
         </button>
 
         <button
@@ -68,13 +68,13 @@ export default function AdminBlacklistPage() {
           <div style={{ background: '#fff1f2', borderBottom: '1px solid #fecdd3', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#881337', fontSize: '0.8125rem' }}>
             <AlertTriangle size={18} />
             <span>
-              <strong>Chính sách BR-32 &amp; BR-36:</strong> Khách hàng trong danh sách này bị khóa vĩnh viễn tính năng COD, chỉ được đặt hàng qua thanh toán QR Online.
+              Khách hàng trong danh sách này bị tạm khóa tính năng COD, chỉ được đặt hàng qua thanh toán QR Online.
             </span>
           </div>
 
           {blacklistedUsers.length === 0 ? (
             <p style={{ textAlign: 'center', color: '#94a3b8', padding: '32px 0', fontSize: '0.875rem' }}>
-              Không có tài khoản nào bị Blacklist COD.
+              Không có tài khoản nào bị hạn chế COD.
             </p>
           ) : (
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.875rem' }}>
@@ -82,7 +82,7 @@ export default function AdminBlacklistPage() {
                 <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#475569' }}>
                   <th style={{ padding: '12px 16px' }}>Sinh viên</th>
                   <th style={{ padding: '12px 16px' }}>Mã SV / SĐT</th>
-                  <th style={{ padding: '12px 16px' }}>Lý do đưa vào Blacklist (BR-36)</th>
+                  <th style={{ padding: '12px 16px' }}>Lý do hạn chế COD</th>
                   <th style={{ padding: '12px 16px' }}>Quyền COD</th>
                   <th style={{ padding: '12px 16px', textAlign: 'right' }}>Thao tác</th>
                 </tr>

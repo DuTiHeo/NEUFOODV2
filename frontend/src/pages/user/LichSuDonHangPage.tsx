@@ -58,7 +58,7 @@ export default function LichSuDonHangPage() {
 
       let detail = `${o.items?.length || 0} món`
       if (o.receiveType === 'at_canteen') {
-        detail += ' • Nhận tại quầy Canteen A2 (BR-31)'
+        detail += ' • Nhận tại quầy Canteen A2'
       } else if (o.location) {
         detail += ` • Tòa ${o.location.building} - Tầng ${o.location.floor} - ${o.location.room}`
       }
@@ -211,7 +211,7 @@ export default function LichSuDonHangPage() {
                         style={{ background: '#fff1f2', color: '#be123c', border: '1px solid #fecdd3', fontWeight: 700 }}
                         to={`/khieu-nai?orderId=${o.rawId || o.id}`}
                       >
-                        Khiếu nại (UC17)
+                        Khiếu nại
                       </Link>
                     ) : null}
                     <Link className={`${styles.btn} ${styles.btnPri}`} to="/menu">

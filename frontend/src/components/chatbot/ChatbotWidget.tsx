@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Bot, Sparkles } from 'lucide-react'
 import styles from './ChatbotWidget.module.css'
 
 const API_BASE = import.meta.env.VITE_CHAT_API_URL ?? ''
@@ -47,9 +48,9 @@ function parseMarkdown(text) {
 }
 
 const QUICK_PROMPTS = [
-  'Gợi ý món cho bữa trưa',
-  'Cách đặt hàng trên web?',
-  'Mất bao lâu để giao?',
+  'Hôm nay ăn gì?',
+  'Hướng dẫn đặt món giao tận phòng',
+  'Thời gian giao hàng bao lâu?',
 ]
 
 export default function ChatbotWidget() {
@@ -167,10 +168,12 @@ export default function ChatbotWidget() {
         >
           <header className={styles.head}>
             <div className={styles.headTitle}>
-              <span className={styles.headBadge}>AI</span>
+              <div className={styles.headIconWrap}>
+                <Bot size={18} />
+              </div>
               <div>
-                <p className={styles.headName}>Trợ lý NEUFood</p>
-                <p className={styles.headSub}>Hỏi về menu, đặt món, giao hàng</p>
+                <p className={styles.headName}>NEUFood AI</p>
+                <p className={styles.headSub}>Trợ lý tư vấn món &amp; giao hàng</p>
               </div>
             </div>
             <div className={styles.headActions}>
@@ -199,8 +202,7 @@ export default function ChatbotWidget() {
             {messages.length === 0 && !loading && (
               <>
                 <p className={styles.hint}>
-                  Chào bạn! Mình là trợ lý NEUFood — hỏi về menu, đặt món hoặc giao hàng
-                  trong campus nhé.
+                  Chào bạn! Mình là NEUFood AI — trợ lý hỗ trợ tư vấn thực đơn, gợi ý món ngon và hướng dẫn đặt hàng tại campus NEU nhé.
                 </p>
                 <div className={styles.quickRow} role="group" aria-label="Gợi ý nhanh">
                   {QUICK_PROMPTS.map((q) => (
@@ -277,14 +279,10 @@ export default function ChatbotWidget() {
         aria-expanded={open}
         aria-label={open ? 'Đóng trợ lý AI' : 'Mở trợ lý AI NEUFood'}
       >
-        <img
-          className={styles.fabImg}
-          src="/linhvat.png"
-          alt=""
-          width={72}
-          height={72}
-          decoding="async"
-        />
+        <div className={styles.fabInner}>
+          <Bot size={28} className={styles.fabIcon} />
+          <span className={styles.fabPing} />
+        </div>
       </button>
     </div>
   )

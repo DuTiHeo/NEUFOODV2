@@ -24,12 +24,12 @@ export default function Recruit() {
     setErrorMsg('')
 
     if (!studentId.trim() || studentId.trim().length < 6) {
-      setErrorMsg('Mã sinh viên NEU không hợp lệ (BR-01).')
+      setErrorMsg('Mã sinh viên NEU không hợp lệ.')
       return
     }
 
     if (!email.endsWith('@neu.edu.vn')) {
-      setErrorMsg('Vui lòng sử dụng email sinh viên trường NEU (@neu.edu.vn) theo quy định BR-01.')
+      setErrorMsg('Vui lòng sử dụng email sinh viên trường NEU (@neu.edu.vn).')
       return
     }
 
@@ -62,36 +62,36 @@ export default function Recruit() {
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <span
           className="material-symbols-outlined"
-          style={{ fontSize: '48px', color: '#881337', marginBottom: '8px' }}
+          style={{ fontSize: '48px', color: '#059669', marginBottom: '8px' }}
         >
           sports_motorsports
         </span>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#881337', margin: '0 0 8px' }}>
+        <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#047857', margin: '0 0 8px' }}>
           ĐĂNG KÝ SHIPPER NỘI KHU NEUFOOD
         </h2>
         <p style={{ color: '#64748b', fontSize: '0.9375rem', margin: 0 }}>
-          Dành riêng cho sinh viên Đại học Kinh tế Quốc dân (UC27, BR-03, BR-04)
+          Dành riêng cho sinh viên Đại học Kinh tế Quốc dân
         </p>
       </div>
 
       {/* Rules Notice */}
       <div
         style={{
-          background: '#fff1f2',
-          border: '1px solid #fecdd3',
+          background: '#ecfdf5',
+          border: '1px solid #a7f3d0',
           borderRadius: '10px',
           padding: '14px 18px',
           marginBottom: '24px',
           fontSize: '0.875rem',
-          color: '#881337',
+          color: '#065f46',
           lineHeight: 1.5,
         }}
       >
-        <strong>Quy chế tuyển dụng Shipper nội khu (BR-03, BR-04):</strong>
+        <strong>Quy định đăng ký Shipper nội khu:</strong>
         <ul style={{ margin: '6px 0 0', paddingLeft: '20px' }}>
           <li>Chỉ sinh viên NEU chính quy có mã SV và email trường mới được tham gia.</li>
           <li>Hồ sơ gồm: Họ tên, Mã SV, SĐT, Email trường và ảnh thẻ sinh viên rõ nét.</li>
-          <li>Hồ sơ phải được <strong>Quản trị viên (Admin)</strong> phê duyệt trước khi có thể nhận đơn (UC35).</li>
+          <li>Hồ sơ sẽ được Ban quản trị phê duyệt trước khi có thể nhận đơn hàng.</li>
         </ul>
       </div>
 
@@ -112,11 +112,11 @@ export default function Recruit() {
             task_alt
           </span>
           <h3 style={{ fontSize: '1.25rem', color: '#065f46', margin: '0 0 8px' }}>
-            🎉 Nộp hồ sơ Shipper thành công!
+            Nộp hồ sơ Shipper thành công!
           </h3>
           <p style={{ color: '#047857', fontSize: '0.9375rem', lineHeight: 1.5, marginBottom: '20px' }}>
-            Hồ sơ của bạn (Mã SV: <strong>{studentId}</strong>) đang ở trạng thái <strong>Chờ Admin duyệt</strong> (UC35).
-            Sau khi Admin đối soát ảnh thẻ SV và bấm phê duyệt, tài khoản Shipper của bạn sẽ được kích hoạt ngay.
+            Hồ sơ của bạn (Mã SV: <strong>{studentId}</strong>) đang ở trạng thái <strong>Chờ duyệt</strong>.
+            Sau khi đối soát ảnh thẻ sinh viên và phê duyệt, tài khoản Shipper của bạn sẽ được kích hoạt ngay.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
             <button
@@ -153,7 +153,7 @@ export default function Recruit() {
         <form onSubmit={handleSubmit} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
           {existingProfile?.status === 'rejected' ? (
             <div style={{ background: '#fee2e2', border: '1px solid #f87171', borderRadius: '8px', padding: '12px', marginBottom: '16px', color: '#991b1b', fontSize: '0.875rem' }}>
-              <strong>Hồ sơ trước đó bị từ chối:</strong> {existingProfile.rejectionReason || 'Ảnh thẻ mờ hoặc thông tin chưa chính xác (EX-04)'}. Vui lòng cập nhật lại bên dưới.
+              <strong>Hồ sơ trước đó bị từ chối:</strong> {existingProfile.rejectionReason || 'Ảnh thẻ mờ hoặc thông tin chưa chính xác'}. Vui lòng cập nhật lại bên dưới.
             </div>
           ) : null}
 
@@ -223,7 +223,7 @@ export default function Recruit() {
 
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '6px' }}>
-              5. Ảnh chụp thẻ sinh viên NEU (BR-03):
+              5. Ảnh chụp thẻ sinh viên NEU:
             </label>
             <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <div style={{ width: '120px', height: '80px', borderRadius: '8px', border: '2px dashed #cbd5e1', overflow: 'hidden', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -235,7 +235,7 @@ export default function Recruit() {
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ margin: '0 0 6px', fontSize: '0.8125rem', color: '#64748b' }}>
-                  Chọn ảnh demo thẻ sinh viên để Admin đối soát:
+                  Chọn ảnh demo thẻ sinh viên để đối soát:
                 </p>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button
@@ -264,7 +264,7 @@ export default function Recruit() {
               padding: '12px',
               borderRadius: '8px',
               border: 'none',
-              background: '#881337',
+              background: '#059669',
               color: '#ffffff',
               fontWeight: 700,
               fontSize: '1rem',
@@ -276,7 +276,7 @@ export default function Recruit() {
             }}
           >
             <span className="material-symbols-outlined">send</span>
-            Nộp hồ sơ xét duyệt Shipper (UC27)
+            Nộp hồ sơ xét duyệt Shipper
           </button>
         </form>
       )}

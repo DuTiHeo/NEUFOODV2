@@ -41,16 +41,16 @@ export default function CanteenLoginPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #fff1f2 0%, #f8fafc 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: 'sans-serif' }}>
-      <div style={{ maxWidth: '480px', width: '100%', background: '#ffffff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(136, 19, 55, 0.1)', border: '1px solid #ffe4e6', overflow: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: 'sans-serif' }}>
+      <div style={{ maxWidth: '480px', width: '100%', background: '#ffffff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(13, 148, 136, 0.1)', border: '1px solid #ccfbf1', overflow: 'hidden' }}>
         {/* Header */}
-        <div style={{ background: 'linear-gradient(135deg, #881337 0%, #9f1239 100%)', color: '#ffffff', padding: '28px 24px', textAlign: 'center' }}>
+        <div style={{ background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)', color: '#ffffff', padding: '28px 24px', textAlign: 'center' }}>
           <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(255,255,255,0.15)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
             <Store size={32} color="#ffffff" />
           </div>
           <h1 style={{ margin: '0 0 6px', fontSize: '1.375rem', fontWeight: 800 }}>Cổng Đăng Nhập Canteen A2</h1>
           <p style={{ margin: 0, fontSize: '0.8125rem', opacity: 0.9 }}>
-            Tách biệt giao diện Nhân viên thường nhật &amp; Quản lý thực đơn / hoàn tiền (BR-02, BR-28)
+            Phân quyền đăng nhập cho Nhân viên phục vụ và Quản lý Canteen
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export default function CanteenLoginPage() {
                 <ShieldCheck size={16} /> TK Quản Lý Riêng
               </div>
               <div style={{ fontSize: '0.6875rem', color: '#64748b' }}>
-                Chỉ Quản lý biết (Thực đơn UC19, Hoàn tiền UC24, Báo cáo UC25)
+                Quản lý nâng cao (Thực đơn, Hoàn tiền, Báo cáo doanh thu)
               </div>
             </button>
           </div>

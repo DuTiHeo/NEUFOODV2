@@ -12,7 +12,7 @@ export default function AdminKhieuNaiPage() {
 
   const [selectedTicket, setSelectedTicket] = useState<ComplaintTicket | null>(null)
   const [faultDecision, setFaultDecision] = useState<'resolved_canteen_fault' | 'resolved_shipper_fault' | 'rejected'>('resolved_canteen_fault')
-  const [resolutionNote, setResolutionNote] = useState('Xác nhận lỗi thiếu món từ phía bếp. Hoàn tiền 100% cho sinh viên (BR-37).')
+  const [resolutionNote, setResolutionNote] = useState('Xác nhận lỗi thiếu món từ phía bếp. Hoàn tiền 100% cho sinh viên.')
   const [refundAmount, setRefundAmount] = useState<number>(45000)
 
   function handleResolveSubmit() {
@@ -38,7 +38,7 @@ export default function AdminKhieuNaiPage() {
     <div>
       <div style={{ marginBottom: '20px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Xử lý Khiếu nại &amp; Phán quyết Hoàn tiền (UC38, BR-25, BR-37)
+          Xử lý Khiếu nại &amp; Phán quyết Hoàn tiền
         </h2>
         <p style={{ fontSize: '0.8125rem', color: '#64748b', margin: 0 }}>
           Đối soát trách nhiệm giữa Canteen và Shipper để xử lý hoàn tiền công bằng cho khách hàng.
@@ -50,7 +50,7 @@ export default function AdminKhieuNaiPage() {
           <thead>
             <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#475569' }}>
               <th style={{ padding: '12px 16px' }}>Mã đơn &amp; Khách hàng</th>
-              <th style={{ padding: '12px 16px' }}>Loại sự cố (BR-25)</th>
+              <th style={{ padding: '12px 16px' }}>Loại sự cố</th>
               <th style={{ padding: '12px 16px' }}>Mô tả chi tiết</th>
               <th style={{ padding: '12px 16px' }}>Ảnh bằng chứng</th>
               <th style={{ padding: '12px 16px' }}>Trạng thái xử lý</th>
@@ -136,7 +136,7 @@ export default function AdminKhieuNaiPage() {
                         }}
                       >
                         <Scale size={14} />
-                        Phán quyết (BR-37)
+                        Phán quyết
                       </button>
                     ) : (
                       <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Đã đóng ticket</span>
@@ -149,13 +149,13 @@ export default function AdminKhieuNaiPage() {
         </table>
       </div>
 
-      {/* TICKET RESOLUTION MODAL (UC38, BR-37) */}
+      {/* TICKET RESOLUTION MODAL */}
       {selectedTicket ? (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: '16px' }}>
           <div style={{ background: '#ffffff', borderRadius: '14px', maxWidth: '480px', width: '100%', padding: '24px' }}>
             <h3 style={{ margin: '0 0 10px', color: '#0f172a' }}>Phán quyết Khiếu nại đơn #{selectedTicket.orderCode}</h3>
             <p style={{ fontSize: '0.8125rem', color: '#64748b', marginBottom: '16px' }}>
-              Theo quy định <strong>BR-37</strong>: Bên có lỗi phải chịu 100% chi phí hoàn tiền cho khách hàng.
+              Bên có lỗi phải chịu 100% chi phí hoàn tiền cho khách hàng.
             </p>
 
             <div style={{ background: '#f8fafc', padding: '12px', borderRadius: '8px', marginBottom: '16px', fontSize: '0.8125rem' }}>
@@ -164,7 +164,7 @@ export default function AdminKhieuNaiPage() {
             </div>
 
             <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '6px' }}>
-              Xác định bên có lỗi (BR-37):
+              Xác định bên có lỗi:
             </label>
             <select
               value={faultDecision}
@@ -173,7 +173,7 @@ export default function AdminKhieuNaiPage() {
             >
               <option value="resolved_canteen_fault">Lỗi do Canteen A2 (Nấu thiếu/sai món) - Trừ tiền quán</option>
               <option value="resolved_shipper_fault">Lỗi do Shipper (Giao chậm/làm hỏng) - Trừ thu nhập shipper</option>
-              <option value="rejected">Bác bỏ khiếu nại (Không đủ căn cứ / Quá hạn 24h - EX-26)</option>
+              <option value="rejected">Bác bỏ khiếu nại (Không đủ căn cứ / Quá hạn 24h)</option>
             </select>
 
             {faultDecision !== 'rejected' ? (
@@ -214,7 +214,7 @@ export default function AdminKhieuNaiPage() {
                 onClick={handleResolveSubmit}
                 style={{ padding: '8px 18px', borderRadius: '6px', border: 'none', background: '#059669', color: '#ffffff', fontWeight: 700, cursor: 'pointer' }}
               >
-                Kích hoạt lệnh hoàn tiền (UC24)
+                Kích hoạt lệnh hoàn tiền
               </button>
             </div>
           </div>

@@ -23,10 +23,10 @@ export default function CanteenDanhGiaPage() {
     <div>
       <div style={{ marginBottom: '24px' }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-          Đánh giá &amp; Trả lời phản hồi khách hàng (UC26)
+          Đánh giá &amp; Trả lời phản hồi khách hàng
         </h2>
         <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-          Xem phản hồi từ sinh viên sau khi đơn hoàn thành (BR-24) và gửi câu trả lời tương tác từ Canteen A2 (BR-28).
+          Xem phản hồi từ khách hàng sau khi hoàn thành đơn và gửi câu trả lời tương tác từ nhà bếp.
         </p>
       </div>
 
@@ -122,7 +122,7 @@ export default function CanteenDanhGiaPage() {
                       gap: '6px',
                     }}
                   >
-                    <Send size={14} /> Gửi trả lời (UC26)
+                    <Send size={14} /> Gửi trả lời
                   </button>
                 </div>
                 {successId === rev.id && (

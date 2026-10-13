@@ -55,6 +55,7 @@ export function useNeuEngine() {
     // Engine methods directly accessible
     createOrder: mockEngine.createOrder.bind(mockEngine),
     canteenConfirmOrder: mockEngine.canteenConfirmOrder.bind(mockEngine),
+    canteenStartPreparing: mockEngine.canteenStartPreparing.bind(mockEngine),
     canteenFinishPreparing: mockEngine.canteenFinishPreparing.bind(mockEngine),
     canteenHandoverToShipper: mockEngine.canteenHandoverToShipper.bind(mockEngine),
     canteenHandoverToCustomer: mockEngine.canteenHandoverToCustomer.bind(mockEngine),

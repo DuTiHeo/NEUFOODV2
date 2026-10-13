@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: '#003f87',
-        'brand-dark': '#002b5e',
-        'brand-light': '#0056b3',
+        brand: '#059669',
+        'brand-dark': '#047857',
+        'brand-light': '#10b981',
       },
     },
   },

@@ -45,7 +45,7 @@
 }
 
 .dockTab:hover {
-  color: #2563eb;
+  color: #059669;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,19 +54,20 @@
   }
 
   .dockTab:hover {
-    color: #93c5fd;
+    color: #6ee7b7;
   }
 }
 
 .dockTabOn {
-  background-color: #eff6ff;
-  color: #1d4ed8;
+  background-color: #ecfdf5;
+  color: #047857;
+  font-weight: 700;
 }
 
 @media (prefers-color-scheme: dark) {
   .dockTabOn {
-    background-color: rgb(30 58 138 / 0.3);
-    color: #93c5fd;
+    background-color: rgb(6 78 59 / 0.4);
+    color: #6ee7b7;
   }
 }
 

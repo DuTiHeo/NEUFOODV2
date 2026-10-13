@@ -16,7 +16,6 @@ export const ROUTES = {
   HOME: '/',
   MENU: '/menu',
   DISH_DETAIL: (id: string | number = ':id') => `/mon/${id}`,
-  NEAR_NEU: '/gan-neu',
   CART: '/gio-hang',
   CHECKOUT: '/thanh-toan',
   ORDERS: '/lich-su-don',

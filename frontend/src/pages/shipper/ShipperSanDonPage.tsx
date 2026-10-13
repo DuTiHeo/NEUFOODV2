@@ -42,7 +42,7 @@ export default function ShipperSanDonPage() {
           <AlertCircle size={28} color="#dc2626" style={{ margin: '0 auto 6px' }} />
           <strong style={{ fontSize: '0.8125rem', color: '#991b1b', display: 'block' }}>Bạn đang tắt trạng thái nhận đơn</strong>
           <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#7f1d1d' }}>
-            Vui lòng bấm nút <strong>&ldquo;Đang Sẵn Sàng&rdquo;</strong> ở trên để xem và nhận đơn mới (BR-20).
+            Vui lòng bật trạng thái <strong>&ldquo;Đang Sẵn Sàng&rdquo;</strong> để xem và nhận đơn mới.
           </p>
         </div>
       ) : null}
@@ -144,7 +144,7 @@ export default function ShipperSanDonPage() {
 
                 {isCod && !canAffordCod ? (
                   <p style={{ margin: '6px 0 0', fontSize: '0.6875rem', color: '#dc2626' }}>
-                    Chạm hạn mức ứng tiền 500k (BR-35). Không thể nhận thêm đơn COD.
+                    Đã đạt hạn mức ứng 500.000đ. Không thể nhận thêm đơn COD.
                   </p>
                 ) : null}
               </div>

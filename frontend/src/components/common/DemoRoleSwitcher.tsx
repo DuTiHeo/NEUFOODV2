@@ -29,9 +29,9 @@ export default function DemoRoleSwitcher() {
         { dishId: 'tra-sua', name: 'Trà Sữa Trân Châu', price: 35000, qty: 1 },
       ],
       paymentMethod: 'cod',
-      note: 'Demo kịch bản ứng tiền COD (BR-34, BR-35)',
+      note: 'Demo kịch bản ứng tiền COD',
     })
-    triggerToast('⚡ Đã tạo 1 đơn COD 92k giao lên P402-A2!')
+    triggerToast('Đã tạo 1 đơn COD mẫu giao lên P402-A2!')
   }
 
   function handleSimulateBoomOrder() {
@@ -43,16 +43,16 @@ export default function DemoRoleSwitcher() {
       deliveryTiming: 'immediate',
       items: [{ dishId: 'com-ga', name: 'Cơm Gà Xối Mỡ', price: 45000, qty: 1 }],
       paymentMethod: 'cod',
-      note: 'Demo Boom hàng',
+      note: 'Demo không nhận hàng',
     })
-    shipperReportIncident(newOrd.id, 'Khách hàng không nghe máy sau 5 phút chờ (EX-36)')
-    triggerToast('🚨 Đã mô phỏng Boom hàng! Tài khoản khách đã bị đưa vào Blacklist COD (BR-36).')
+    shipperReportIncident(newOrd.id, 'Khách hàng không nghe máy sau 5 phút chờ')
+    triggerToast('Đã ghi nhận sự cố giao hàng không thành công.')
   }
 
   function handleReset() {
-    if (window.confirm('Khôi phục toàn bộ dữ liệu mẫu (LocalStorage) về trạng thái ban đầu?')) {
+    if (window.confirm('Khôi phục toàn bộ dữ liệu mẫu về trạng thái ban đầu?')) {
       resetAllToSeed()
-      triggerToast('🔄 Đã làm mới toàn bộ dữ liệu mẫu ban đầu!')
+      triggerToast('Đã làm mới dữ liệu hệ thống!')
     }
   }
 
@@ -135,16 +135,16 @@ export default function DemoRoleSwitcher() {
                 style={{
                   padding: '8px 10px',
                   borderRadius: '8px',
-                  border: pathname === '/' || pathname.startsWith('/menu') || pathname.startsWith('/don-hang') ? '2px solid #881337' : '1px solid #cbd5e1',
-                  background: pathname === '/' ? '#fff1f2' : '#ffffff',
-                  color: '#881337',
+                  border: pathname === '/' || pathname.startsWith('/menu') || pathname.startsWith('/don-hang') ? '2px solid #059669' : '1px solid #cbd5e1',
+                  background: pathname === '/' ? '#ecfdf5' : '#ffffff',
+                  color: '#047857',
                   fontWeight: 700,
                   fontSize: '0.75rem',
                   cursor: 'pointer',
                   textAlign: 'left',
                 }}
               >
-                🎓 Khách hàng (/)
+                Khách hàng (/)
               </button>
 
               <button
@@ -162,7 +162,7 @@ export default function DemoRoleSwitcher() {
                   textAlign: 'left',
                 }}
               >
-                🍳 Canteen {pendingCanteen > 0 ? `(${pendingCanteen} mới)` : ''}
+                Canteen {pendingCanteen > 0 ? `(${pendingCanteen} mới)` : ''}
               </button>
 
               <button
@@ -180,7 +180,7 @@ export default function DemoRoleSwitcher() {
                   textAlign: 'left',
                 }}
               >
-                🛵 Shipper {poolShipper > 0 ? `(${poolShipper} đơn)` : ''}
+                Shipper {poolShipper > 0 ? `(${poolShipper} đơn)` : ''}
               </button>
 
               <button
@@ -198,12 +198,12 @@ export default function DemoRoleSwitcher() {
                   textAlign: 'left',
                 }}
               >
-                🛡️ System Admin
+                Quản trị hệ thống
               </button>
             </div>
 
             <p style={{ margin: '0 0 8px', fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
-              KỊCH BẢN THUYẾT TRÌNH NHANH:
+              KỊCH BẢN THUYẾT TRÌNH:
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '12px' }}>
@@ -226,7 +226,7 @@ export default function DemoRoleSwitcher() {
                 }}
               >
                 <Zap size={13} color="#d97706" />
-                <span>Tạo 1 đơn COD mẫu (Demo ứng tiền)</span>
+                <span>Tạo 1 đơn COD mẫu</span>
               </button>
 
               <button
@@ -248,7 +248,7 @@ export default function DemoRoleSwitcher() {
                 }}
               >
                 <ShieldAlert size={13} color="#dc2626" />
-                <span>Mô phỏng Boom hàng (Khóa Blacklist COD)</span>
+                <span>Mô phỏng đơn không nhận hàng</span>
               </button>
             </div>
 

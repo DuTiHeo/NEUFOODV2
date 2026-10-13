@@ -32,7 +32,7 @@ export default function AdminDiaDiemPage() {
     )
 
     if (loc.isActive && activeOrdersAtLoc.length > 0) {
-      alert(`LƯU Ý BR-10 (EX-06): Địa điểm ${loc.room} (Tòa ${loc.building}) hiện đang có ${activeOrdersAtLoc.length} đơn hàng đang thực hiện dở. Hệ thống sẽ vô hiệu hóa nhận đơn mới tại điểm này!`)
+      alert(`Lưu ý: Địa điểm ${loc.room} (Tòa ${loc.building}) hiện đang có ${activeOrdersAtLoc.length} đơn hàng đang thực hiện. Hệ thống sẽ vô hiệu hóa nhận đơn mới tại điểm này!`)
     }
 
     toggleLocationStatus(loc.id, !loc.isActive)
@@ -59,10 +59,10 @@ export default function AdminDiaDiemPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px' }}>
-            Quản lý Danh mục Địa điểm Giao hàng Nội khu NEU (UC36)
+            Quản lý Danh mục Địa điểm Giao hàng Nội khu NEU
           </h2>
           <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
-            Phạm vi khuôn viên Đại học Kinh tế Quốc dân (Tòa A1, A2, B, C, D) theo <strong>BR-08, BR-09</strong>. Vô hiệu hóa điểm có đơn dở theo <strong>BR-10, EX-06</strong>.
+            Phạm vi khuôn viên Đại học Kinh tế Quốc dân (Tòa A1, A2, B, C, D). Vô hiệu hóa điểm đang có đơn dở dang.
           </p>
         </div>
 
@@ -133,10 +133,10 @@ export default function AdminDiaDiemPage() {
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.875rem' }}>
           <thead>
             <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#475569', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase' }}>
-              <th style={{ padding: '14px 18px' }}>Tòa nhà Campus (BR-09)</th>
+              <th style={{ padding: '14px 18px' }}>Tòa nhà Campus</th>
               <th style={{ padding: '14px 18px' }}>Tầng</th>
               <th style={{ padding: '14px 18px' }}>Phòng học cụ thể</th>
-              <th style={{ padding: '14px 18px' }}>Trạng thái phục vụ (BR-10)</th>
+              <th style={{ padding: '14px 18px' }}>Trạng thái phục vụ</th>
               <th style={{ padding: '14px 18px', textAlign: 'right' }}>Thao tác</th>
             </tr>
           </thead>
@@ -167,7 +167,7 @@ export default function AdminDiaDiemPage() {
                     </span>
                   ) : (
                     <span style={{ background: '#fef2f2', color: '#dc2626', padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                      <XCircle size={13} /> Vô hiệu hóa (BR-10)
+                      <XCircle size={13} /> Vô hiệu hóa
                     </span>
                   )}
                 </td>
@@ -186,7 +186,7 @@ export default function AdminDiaDiemPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    {loc.isActive ? 'Vô hiệu hóa (BR-10)' : 'Kích hoạt lại'}
+                    {loc.isActive ? 'Vô hiệu hóa' : 'Kích hoạt lại'}
                   </button>
                 </td>
               </tr>
@@ -199,7 +199,7 @@ export default function AdminDiaDiemPage() {
       {isAddOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px', zIndex: 100 }}>
           <div style={{ background: '#ffffff', borderRadius: '14px', maxWidth: '420px', width: '100%', padding: '24px', boxShadow: '0 20px 25px rgba(0,0,0,0.2)' }}>
-            <h3 style={{ margin: '0 0 16px', fontSize: '1.125rem', fontWeight: 800, color: '#0f172a' }}>Thêm Phòng học / Điểm giao mới (UC36)</h3>
+            <h3 style={{ margin: '0 0 16px', fontSize: '1.125rem', fontWeight: 800, color: '#0f172a' }}>Thêm Phòng học / Điểm giao mới</h3>
             <form onSubmit={handleAdd}>
               <div style={{ marginBottom: '12px' }}>
                 <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '4px' }}>Tòa nhà:</label>

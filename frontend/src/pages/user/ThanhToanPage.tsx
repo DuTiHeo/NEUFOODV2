@@ -221,11 +221,11 @@ export default function ThanhToanPage() {
 
           <div className={styles.payGrid}>
             <div className={styles.payLeft}>
-              {/* Card 1: Hình thức nhận hàng (BR-31) */}
+              {/* Card 1: Hình thức nhận hàng */}
               <div className={styles.card}>
                 <div className={styles.cardHead}>
                   <span className={`material-symbols-outlined ${styles.cardIcon}`}>storefront</span>
-                  <h2 className={styles.cardH}>1. Hình thức nhận hàng (BR-31)</h2>
+                  <h2 className={styles.cardH}>1. Hình thức nhận hàng</h2>
                 </div>
                 <div className={styles.cardBody}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
@@ -264,7 +264,7 @@ export default function ThanhToanPage() {
                         <span className="material-symbols-outlined" style={{ color: '#059669' }}>takeout_dining</span>
                         <strong style={{ color: '#065f46', fontSize: '0.9375rem' }}>Nhận tại quầy Canteen A2</strong>
                       </div>
-                      <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748b' }}>Miễn phí giao hàng, giữ đồ 30 phút (BR-31)</p>
+                      <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748b' }}>Miễn phí giao hàng, giữ đồ trong 30 phút</p>
                     </button>
                   </div>
 
@@ -272,19 +272,19 @@ export default function ThanhToanPage() {
                     <div style={{ background: '#ecfdf5', border: '1px solid #a7f3d0', borderRadius: '8px', padding: '12px 14px', display: 'flex', gap: '10px' }}>
                       <span className="material-symbols-outlined" style={{ color: '#059669', fontSize: '20px' }}>info</span>
                       <p style={{ margin: 0, fontSize: '0.8125rem', color: '#065f46', lineHeight: 1.5 }}>
-                        <strong>Quy định nhận tại quầy (BR-31):</strong> Không tính phí ship. Canteen giữ món tối đa <strong>30 phút</strong> sau khi sẵn sàng. Đơn nhận tại quầy chỉ áp dụng thanh toán online.
+                        <strong>Lưu ý:</strong> Miễn phí ship. Canteen giữ đồ tối đa <strong>30 phút</strong> sau khi món xong. Đơn nhận tại quầy áp dụng thanh toán online.
                       </p>
                     </div>
                   ) : null}
                 </div>
               </div>
 
-              {/* Card 2: Địa điểm nhận nội khu NEU (BR-08, BR-09) */}
+              {/* Card 2: Điểm giao hàng nội khu NEU */}
               {receiveType === 'delivery' ? (
                 <div className={styles.card}>
                   <div className={styles.cardHead}>
                     <span className={`material-symbols-outlined ${styles.cardIcon}`}>location_on</span>
-                    <h2 className={styles.cardH}>2. Điểm giao hàng nội khu NEU (BR-08, BR-09)</h2>
+                    <h2 className={styles.cardH}>2. Điểm giao hàng nội khu NEU</h2>
                   </div>
                   <div className={styles.cardBody}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '12px', marginBottom: '14px' }}>
@@ -355,11 +355,11 @@ export default function ThanhToanPage() {
                 </div>
               ) : null}
 
-              {/* Card 3: Thời gian giao / nhận (BR-11, UC09) */}
+              {/* Card 3: Thời gian giao / nhận */}
               <div className={styles.card}>
                 <div className={styles.cardHead}>
                   <span className={`material-symbols-outlined ${styles.cardIcon}`}>schedule</span>
-                  <h2 className={styles.cardH}>3. Thời gian nhận món (BR-11, UC09)</h2>
+                  <h2 className={styles.cardH}>3. Thời gian nhận món</h2>
                 </div>
                 <div className={styles.cardBody}>
                   <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
@@ -370,7 +370,7 @@ export default function ThanhToanPage() {
                         checked={deliveryTiming === 'immediate'}
                         onChange={() => setDeliveryTiming('immediate')}
                       />
-                      <span><strong>Giao ngay</strong> (Trong vòng 15-20 phút theo SLA)</span>
+                      <span><strong>Giao ngay</strong> (Trong khoảng 15 - 20 phút)</span>
                     </label>
 
                     <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '0.875rem' }}>
@@ -380,7 +380,7 @@ export default function ThanhToanPage() {
                         checked={deliveryTiming === 'scheduled'}
                         onChange={() => setDeliveryTiming('scheduled')}
                       />
-                      <span><strong>Hẹn giờ trước</strong> (Tối thiểu 30 phút - BR-11)</span>
+                      <span><strong>Hẹn giờ trước</strong> (Tối thiểu 30 phút)</span>
                     </label>
                   </div>
 
@@ -416,7 +416,7 @@ export default function ThanhToanPage() {
                 </div>
               </div>
 
-              {/* Card 4: Phương thức thanh toán (BR-13, BR-14, BR-32, BR-33) */}
+              {/* Card 4: Phương thức thanh toán */}
               <div className={styles.card}>
                 <div className={styles.cardHead}>
                   <span className={`material-symbols-outlined ${styles.cardIcon}`}>account_balance_wallet</span>
@@ -439,7 +439,7 @@ export default function ThanhToanPage() {
                     </div>
                     <div>
                       <p className={styles.payOptT}>Chuyển khoản QR Động</p>
-                      <p className={styles.payOptD}>Mã VietQR động có hiệu lực 2 phút (BR-14)</p>
+                      <p className={styles.payOptD}>Mã VietQR động có hiệu lực trong 2 phút</p>
                     </div>
                     <span className={payment === 'qr_online' ? `${styles.payOptRing} ${styles.payOptRingOn}` : styles.payOptRing} />
                   </label>
@@ -473,15 +473,15 @@ export default function ThanhToanPage() {
                       {/* Warning reasons */}
                       {isCodBlockedByAtCanteen ? (
                         <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#b91c1c' }}>
-                          ⚠️ Đơn nhận tại quầy không hỗ trợ COD (BR-31).
+                          Đơn nhận tại quầy không hỗ trợ thanh toán tiền mặt COD.
                         </p>
                       ) : isCodBlockedByLimit ? (
                         <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#b91c1c' }}>
-                          ⚠️ Đơn vượt hạn mức COD ({config.codMaxOrderLimit.toLocaleString()}đ) - BR-33.
+                          Đơn vượt hạn mức tiền mặt COD ({config.codMaxOrderLimit.toLocaleString()}đ).
                         </p>
                       ) : isCodBlockedByBlacklist ? (
                         <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#b91c1c' }}>
-                          🚫 Tài khoản bị khóa COD: {currentUser.blacklistReason} (BR-32, BR-36).
+                          Tài khoản tạm thời không hỗ trợ COD: {currentUser.blacklistReason}.
                         </p>
                       ) : null}
                     </div>
@@ -592,7 +592,7 @@ export default function ThanhToanPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: qrCountdown > 0 ? '#fef3c7' : '#fee2e2', color: qrCountdown > 0 ? '#92400e' : '#b91c1c', padding: '6px 14px', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 700, marginBottom: '16px' }}>
                 <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>timer</span>
                 {qrCountdown > 0 ? (
-                  <span>Mã hết hạn sau: {Math.floor(qrCountdown / 60)}:{(qrCountdown % 60).toString().padStart(2, '0')} (BR-14)</span>
+                  <span>Mã hết hạn sau: {Math.floor(qrCountdown / 60)}:{(qrCountdown % 60).toString().padStart(2, '0')}</span>
                 ) : (
                   <span>Mã QR đã hết hạn! Vui lòng tạo lại.</span>
                 )}

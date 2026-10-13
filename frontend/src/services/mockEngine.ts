@@ -38,6 +38,7 @@ export const INITIAL_CONFIG: SystemConfig = {
   shipperMaxAdvanceLimit: 500000,
   canteenKeepMinutes: 30,
   canteenConfirmTimeout: 10,
+  autoAcceptToPreparing: true,
 }
 
 export const INITIAL_USERS: UserAccount[] = [
@@ -573,7 +574,9 @@ class NeuMockEngine {
       paymentMethod: params.paymentMethod,
       paymentStatus: params.paymentMethod === 'qr_online' ? 'paid' : 'pending',
       qrExpiresAt: params.paymentMethod === 'qr_online' ? Date.now() + 2 * 60000 : undefined,
-      status: 'awaiting_canteen', // Chờ Canteen xác nhận (BR-13)
+      // UC22: Nếu Canteen bật chế độ Tự động chuẩn bị -> Chuyển thẳng sang 'preparing' (vào bếp ngay), không cần bấm duyệt
+      status: config.autoAcceptToPreparing !== false ? 'preparing' : 'awaiting_canteen',
+      canteenConfirmedAt: config.autoAcceptToPreparing !== false ? new Date().toISOString() : undefined,
       note: params.note,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -585,12 +588,12 @@ class NeuMockEngine {
   }
 
   // --- CANTEEN ACTIONS ---
-  public canteenConfirmOrder(orderId: string, accept: boolean, reason?: string) {
+  public canteenConfirmOrder(orderId: string, accept: boolean, reason?: string, autoPrepare: boolean = true) {
     const orders = this.getOrders()
     const ord = orders.find((o) => o.id === orderId)
     if (!ord) return
     if (accept) {
-      ord.status = 'preparing'
+      ord.status = autoPrepare ? 'preparing' : 'confirmed'
       ord.canteenConfirmedAt = new Date().toISOString()
     } else {
       ord.status = 'cancelled'
@@ -598,6 +601,15 @@ class NeuMockEngine {
       ord.cancelledBy = 'canteen'
       if (ord.paymentMethod === 'qr_online') ord.paymentStatus = 'refunded'
     }
+    ord.updatedAt = new Date().toISOString()
+    this.saveOrders(orders)
+  }
+
+  public canteenStartPreparing(orderId: string) {
+    const orders = this.getOrders()
+    const ord = orders.find((o) => o.id === orderId)
+    if (!ord) return
+    ord.status = 'preparing'
     ord.updatedAt = new Date().toISOString()
     this.saveOrders(orders)
   }
@@ -662,7 +674,7 @@ class NeuMockEngine {
     const s = shippers.find((it) => it.id === shipperId)
     if (!s) throw new Error('Không tìm thấy tài xế.')
     if (!s.isOnline) throw new Error('Bạn cần bật trạng thái Sẵn sàng nhận đơn.')
-    if (s.activeOrdersCount >= 5) throw new Error('Bạn đang giao tối đa 5 đơn (BR-19).')
+    if (s.activeOrdersCount >= 5) throw new Error('Bạn đang giao tối đa 5 đơn cùng lúc.')
 
     const orders = this.getOrders()
     const ord = orders.find((o) => o.id === orderId)
@@ -672,7 +684,7 @@ class NeuMockEngine {
     const config = this.getConfig()
     if (ord.paymentMethod === 'cod') {
       if (s.currentAdvanceAmount + ord.subtotal > config.shipperMaxAdvanceLimit) {
-        throw new Error(`Đơn này vượt quá hạn mức ứng tiền còn lại (${config.shipperMaxAdvanceLimit.toLocaleString()}đ - BR-35).`)
+        throw new Error(`Đơn này vượt quá hạn mức ứng tiền còn lại (${config.shipperMaxAdvanceLimit.toLocaleString()}đ).`)
       }
       s.currentAdvanceAmount += ord.subtotal
     }
@@ -766,7 +778,7 @@ class NeuMockEngine {
 
     // BR-16: Chỉ được hủy khi Canteen chưa chuẩn bị
     if (!['created', 'awaiting_payment', 'awaiting_canteen', 'confirmed'].includes(ord.status)) {
-      throw new Error('Không thể hủy vì Canteen đã bắt đầu chuẩn bị món (BR-16).')
+      throw new Error('Không thể hủy vì nhà bếp đã bắt đầu chuẩn bị món.')
     }
 
     ord.status = 'cancelled'

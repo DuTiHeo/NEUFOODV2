@@ -26,7 +26,7 @@ export default function ShipperLayout() {
     textDecoration: 'none',
     fontSize: '0.6875rem',
     fontWeight: isActive ? 700 : 500,
-    color: isActive ? '#0284c7' : '#64748b',
+    color: isActive ? '#059669' : '#64748b',
     position: 'relative' as const,
   })
 
@@ -61,10 +61,10 @@ export default function ShipperLayout() {
         {/* Top Status Bar & Header */}
         <header
           style={{
-            background: '#0284c7',
+            background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
             color: '#ffffff',
             padding: '16px 18px 12px',
-            borderBottom: '1px solid #0369a1',
+            borderBottom: '1px solid #047857',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
@@ -99,17 +99,17 @@ export default function ShipperLayout() {
                 }}
               >
                 <Power size={12} />
-                {currentShipper.isOnline ? 'Bật (BR-20)' : 'Tắt'}
+                {currentShipper.isOnline ? 'Đang bật' : 'Đang tắt'}
               </button>
 
-              {/* LogOut Button (UC03) */}
+              {/* LogOut Button */}
               <button
                 type="button"
                 onClick={() => {
                   localStorage.removeItem('neu_shipper_session')
                   window.location.href = '/shipper/login'
                 }}
-                title="Đăng xuất Shipper (UC03)"
+                title="Đăng xuất Shipper"
                 style={{
                   background: 'rgba(255,255,255,0.2)',
                   border: 'none',
@@ -128,14 +128,14 @@ export default function ShipperLayout() {
             </div>
           </div>
 
-          {/* Limits indicator (BR-19, BR-35) */}
+          {/* Limits indicator */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', background: 'rgba(0, 0, 0, 0.15)', padding: '6px 10px', borderRadius: '8px', fontSize: '0.6875rem' }}>
             <div>
-              <span style={{ opacity: 0.8 }}>Đơn đang giao (BR-19):</span>
+              <span style={{ opacity: 0.8 }}>Đơn đang giao:</span>
               <strong style={{ display: 'block', fontSize: '0.75rem' }}>{myDeliveringCount} / 5 đơn</strong>
             </div>
             <div>
-              <span style={{ opacity: 0.8 }}>Tiền ứng COD (BR-35):</span>
+              <span style={{ opacity: 0.8 }}>Tiền ứng COD:</span>
               <strong style={{ display: 'block', fontSize: '0.75rem' }}>
                 {Number(currentShipper.currentAdvanceAmount).toLocaleString('vi-VN')}đ / 500k
               </strong>
@@ -186,7 +186,7 @@ export default function ShipperLayout() {
 
           <NavLink to="/shipper/ho-so" style={tabStyle}>
             <Bike size={18} />
-            <span>Tài khoản (UC04)</span>
+            <span>Tài khoản</span>
           </NavLink>
         </nav>
       </div>
